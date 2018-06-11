@@ -40,5 +40,6 @@ class HttpRequest():
             print ("请求失败，出现的错误是%s"%e)#错误抓起来，然后代码可以继续运行，把异常信息获取到，并对异常进行处理
             raise e#你处理完了以后，要把错误物归原主。错误还是会报出来，程序终止
 if __name__=="__main__":
-    url=''
-    data=''
+    httpr=HttpRequest("http://apis.juhe.cn/cook/query.php",param={'menu':'宫保鸡丁','key':'5c12d954b0908fc265c9ff3576fab727'})
+    res=httpr.get_post_request("get")
+    print(res)

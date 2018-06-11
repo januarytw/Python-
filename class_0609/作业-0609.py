@@ -32,7 +32,6 @@ class TestHttpRequest(unittest.TestCase):
     def setUp(self):
         print("测试开始！")
 
-
     def test_get_request(self):
         h=HttpRequest(url,data=parm)
         result=h.get_post_request('get')

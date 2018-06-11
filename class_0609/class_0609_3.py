@@ -20,7 +20,6 @@ suite.addTest(TestAdd("test_add_two_possitive"))
 # with open("test_report.txt","w") as file:
 # with open("test_report.html","wb") as file:
 #     #下面是执行你存在suite里面的用例
-#     runner=HTML
 #     runner=unittest.TextTestRunner(file,descriptions="这是个报告",verbosity=1)#verbosity有三个值，0.1.2
 #     runner.run(suite)
 

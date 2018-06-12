@@ -1,29 +1,8 @@
 import requests
 import unittest
 import HTMLTestRunnerNew
+from class_0607.class_0607_2 import HttpRequest
 
-#http请求类
-class HttpRequest:
-    def __init__(self,url,data=None):
-        self.url=url
-        self.data=data
-
-    def get_post_request(self,mothod):
-        try:
-            if mothod.upper()=="GET":
-                response=requests.get(self.url,self.data)
-                print(response.json())
-            elif mothod.upper()=="POST":
-                response=requests.post(self.url,self.data)
-                print(response.json())
-        except Exception as e:
-            print ("请求失败，出现的错误是%s"%e)
-            raise e
-
-
-# h=HttpRequest("http://apis.juhe.cn/cook/query.php",data={'menu':'宫保鸡丁','key':'5c12d954b0908fc265c9ff3576fab727'})
-# res=h.get_post_request("get")
-# print(res)
 
 '''测试http请求类'''
 url='http://apis.juhe.cn/cook/query.php'
@@ -48,11 +27,11 @@ class TestHttpRequest(unittest.TestCase):
 
 if __name__=="__main__":
     suite=unittest.TestSuite()
-    suite.addTest(TestHttpRequest("test_get_request"))
-    suite.addTest(TestHttpRequest("test_post_request"))
-    # loader=unittest.TestLoader()
-    # suite.addTest(loader.loadTestsFromTestCase(HTMLTestRunnerNew))
-
-    with open("test_report.html","wb") as file:
-        runner=HTMLTestRunnerNew.HTMLTestRunner(stream=file, verbosity=2,title='测试报告',description='1234567',tester='校长')
+    # suite.addTest(TestHttpRequest("test_get_request"))
+    # suite.addTest(TestHttpRequest("test_post_request"))
+    loader=unittest.TestLoader()
+    suite.addTests(loader.loadTestsFromTestCase(TestHttpRequest))
+    print(suite.countTestCases())##!!查看用例集合中有多少用例
+    with open("d:/test_report.html","wb") as file:
+        runner=HTMLTestRunnerNew.HTMLTestRunner(stream=file, verbosity=2,title='测试报告',description='菜谱接口测试',tester='张三')
         runner.run(suite)

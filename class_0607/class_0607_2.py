@@ -16,9 +16,9 @@ import requests
 #写一个HTTP请求类 里面有2个参数，分别完成GET和POST请求
 
 class HttpRequest():
-    def __init__(self,url,param=None):#空用None
+    def __init__(self,url,data=None):#空用None
         self.url=url
-        self.param=param
+        self.data=data
     # def get(self,url,param):
     #     response=requests.get(self.url,self.param)
     #     return response.json()
@@ -31,15 +31,15 @@ class HttpRequest():
     def get_post_request(self,method):
         try:
             if method.upper()=="GET":
-                response=requests.get(self.url,self.param)
+                response=requests.get(self.url,self.data)
                 return response.json()
             elif method.upper()=="POST":
-                response=requests.post(self.url,self.param)
+                response=requests.post(self.url,self.data)
                 return response.json()
         except Exception as e:
             print ("请求失败，出现的错误是%s"%e)#错误抓起来，然后代码可以继续运行，把异常信息获取到，并对异常进行处理
             raise e#你处理完了以后，要把错误物归原主。错误还是会报出来，程序终止
 if __name__=="__main__":
-    httpr=HttpRequest("http://apis.juhe.cn/cook/query.php",param={'menu':'宫保鸡丁','key':'5c12d954b0908fc265c9ff3576fab727'})
-    res=httpr.get_post_request("get")
+    hr=HttpRequest(url="http://apis.juhe.cn/cook/query.php",data={'menu':'宫保鸡丁','key':'5c12d954b0908fc265c9ff3576fab727'})
+    res=hr.get_post_request("get")
     print(res)

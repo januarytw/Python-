@@ -5,20 +5,21 @@
 # 2：请根据上课内容对老黄历编写至少5条用例，上述给出的数据都是正确的请求数据
 # 3：把用例的数据写到Excel里面，然后请把每一行的数据存到一个子列表里面，所有的行数据都放到一个大的列表里面。
 # 4：读取数据的的功能，请写成一个类。
+import
 from openpyxl import load_workbook
 class ReadData():
     #读取Excel数据，并把每一行的数据追加到列表中
     def ReadExcelToList(self,file):
         try:
             work_book=load_workbook(file)
-            sheet=work_book["test_data"]
+            sheet=work_book["test_data"]##工作表的名字可以作为参数
             row=sheet.max_row
             cloumn=sheet.max_column
 
             i=1
             list_1=[]
             list_2=[]
-            while i<row:
+            while i<row:#!!!!此处可以用for in range()
                 j=1
                 while j<=cloumn:
                     list_1.append(sheet.cell(i+1,j).value)

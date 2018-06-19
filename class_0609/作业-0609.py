@@ -1,3 +1,8 @@
+# 请给0607这节课写的HTTP请求类写一个测试类。要求如下：
+# 1：写好测试类
+# 2：写好单元测试
+# 3：要求代入测试数据，输出测试报告
+
 import requests
 import time
 import unittest

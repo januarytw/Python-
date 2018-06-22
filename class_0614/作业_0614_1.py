@@ -21,21 +21,14 @@ class HttpRequest():
             print ("请求失败，出现的错误是%s"%e)
             raise e
 
+
+
 '''二、操作excel'''
 from openpyxl import load_workbook
 class DoExcel():
     def __init__(self,file_path,sheet_name):
         self.file_path=file_path
         self.sheet_name=sheet_name
-
-    #获取excel行数
-    def getExcelRows(self):
-        try:
-            work_book=load_workbook(self.file_path)
-            sheet=work_book[self.sheet_name]
-            return sheet.max_row
-        except Exception as e:
-            print("出错了：",e)
 
     #读取Excel数据
     def readData(self):#此处可以改进一下，利用初始化函数
@@ -55,7 +48,7 @@ class DoExcel():
                 list_1=[]
             return list_2
         except Exception as e:
-            print("出错了：",e)
+            print("读取出错了：",e)
 
     #写入测试结果
     def writeData(self,r,c,msg):
@@ -65,34 +58,42 @@ class DoExcel():
             sheet.cell(r,c).value=msg
             work_book.save(self.file_path)#保存
         except Exception as e:
-            print("出错了：",e)
+            print("写入出错了：",e)
+
+
 
 '''三、http请求类的单元测试'''
 import requests
-import time
 import unittest
-import HTMLTestRunnerNew
-
+from ddt import ddt,data,unpack
 
 class TestHttpRequest(unittest.TestCase):
     def setUp(self):
+        self.doExcel=DoExcel("case.xlsx","test_data")
         print("测试开始！")
 
     def test_get_post_request(self):
-        filePath="case.xlsx"
-        sheetName="test_data"
-        doExcel=DoExcel(filePath,sheetName)
-        excelResult=doExcel.readData()
+        excelResult=self.doExcel.readData()
+        # print("读取的结果",excelResult)
+        first_row=2
         for list_sub in excelResult:
-            h=HttpRequest(list_sub[3],data=list_sub[4])
-            result=h.get_post_request(list_sub[2])
+            h=HttpRequest(url=list_sub[3],data=list_sub[4])
+            response=h.get_post_request(list_sub[2])
+
+            print(list_sub)
+            print("canshu",list_sub[3],list_sub[4],list_sub[2])
+            print(response)
             try:
-                self.assertEqual("Success",result["reason"])#正常就通过，结果为否时，抛出异常
-                doExcel.writeData(2,7,"pass")
+                self.assertEqual("Success",response["reason"])#正常就通过，结果为否时，抛出异常
+                result='pass'
             except AssertionError as e:
                 print("出错了",e)
-            raise e
-
+                result='file'
+                raise e
+            finally:
+                self.doExcel.writeData(first_row,7,response)
+                self.doExcel.writeData(first_row,8,result)
+            first_row+=1
 
 
     def tearDown(self):
@@ -100,14 +101,6 @@ class TestHttpRequest(unittest.TestCase):
 
 if __name__=="__main__":
     suite=unittest.TestSuite()
-    # suite.addTest(TestHttpRequest("test_get_request"))
-    # suite.addTest(TestHttpRequest("test_post_request"))
-    loader=unittest.TestLoader()
-    suite.addTests(loader.loadTestsFromTestCase(TestHttpRequest))
-    print(suite.countTestCases())##!!查看用例集合中有多少用例
-
-    now = time.strftime('%Y-%m-%d_%H_%M_%S')#获取当前时间!!!
-    file_path="test"+now+".html"
-    with open(file_path,"wb") as file:
-        runner=HTMLTestRunnerNew.HTMLTestRunner(stream=file, verbosity=2,title='测试报告',description='菜谱接口测试',tester='张三')
-        runner.run(suite)
+    suite.addTest(TestHttpRequest("test_get_post_request"))
+    runner=unittest.TextTestRunner()
+    runner.run(suite)

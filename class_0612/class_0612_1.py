@@ -26,7 +26,7 @@ class TestHttpRequest(unittest.TestCase):
     def test_post_request(self):
         h=HttpRequest(url1,data=parm1)
         result=h.get_post_request('post')
-
+        print(result)
         print(type(self.assertEqual("Success",result["reason"])))#!!!!!!这里为什么用self,这个是调用类中的方法，这个方法其实是继承父类的方法
         # print(result)
 

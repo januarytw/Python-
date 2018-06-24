@@ -63,44 +63,50 @@ class DoExcel():
 
 
 '''三、http请求类的单元测试'''
-import requests
 import unittest
 from ddt import ddt,data,unpack
 
+excelResult=DoExcel("case.xlsx","test_data").readData()
+@ddt
 class TestHttpRequest(unittest.TestCase):
     def setUp(self):
         self.doExcel=DoExcel("case.xlsx","test_data")
         print("测试开始！")
+        # print(excelResult)
 
-    def test_get_post_request(self):
-        excelResult=self.doExcel.readData()
-        # print("读取的结果",excelResult)
-        first_row=2
-        for list_sub in excelResult:
-            h=HttpRequest(url=list_sub[3],data=list_sub[4])
-            response=h.get_post_request(list_sub[2])
+    @data(*excelResult)
+    def test_http_request(self,data_1):
+        print("执行的是第",data_1[0],"条用例")
+        response=HttpRequest(url=data_1[3],data=eval(data_1[4])).get_post_request(data_1[2])#！！！data参数是字典型的，所以要用eval()转换
+        try:
+            self.assertEqual(data_1[5],response["reason"])#正常就通过，结果为否时，抛出异常
+            result='pass'
+        except AssertionError as e:
+            print("出错了",e)
+            result='file'
+            raise e
 
-            print(list_sub)
-            print("canshu",list_sub[3],list_sub[4],list_sub[2])
-            print(response)
-            try:
-                self.assertEqual("Success",response["reason"])#正常就通过，结果为否时，抛出异常
-                result='pass'
-            except AssertionError as e:
-                print("出错了",e)
-                result='file'
-                raise e
-            finally:
-                self.doExcel.writeData(first_row,7,response)
-                self.doExcel.writeData(first_row,8,result)
-            first_row+=1
+        #写入数据
+        self.doExcel.writeData(data_1[0]+1,7,str(response))#！！！写入时，要将字典类型转换成字符串
+        self.doExcel.writeData(data_1[0]+1,8,result)
 
 
     def tearDown(self):
         print("测试结束！\n")
 
+
 if __name__=="__main__":
+    import time
+    import HTMLTestRunnerNew
     suite=unittest.TestSuite()
-    suite.addTest(TestHttpRequest("test_get_post_request"))
-    runner=unittest.TextTestRunner()
-    runner.run(suite)
+    # suite.addTests(TestHttpRequest('test_http_request'))
+    loader=unittest.TestLoader()
+    suite.addTests(loader.loadTestsFromTestCase(TestHttpRequest))
+    # runner=unittest.TextTestRunner()
+    # runner.run(suite)
+
+    now = time.strftime('%Y-%m-%d_%H_%M_%S')#获取当前时间!!!
+    file_path="test"+now+".html"
+    with open(file_path,"wb") as file:
+        runner=HTMLTestRunnerNew.HTMLTestRunner(stream=file, verbosity=2,title='测试报告',description='作文大全接口测试',tester='张三')
+        runner.run(suite)

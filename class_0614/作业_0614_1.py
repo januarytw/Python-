@@ -2,7 +2,7 @@
 # （注意是要从Excel里面获取测试 数据哦~并且把测试结果写回到Excel中去。请注意听老师上课的讲解题意。）
 
 
-'''一、HTTP请求类 里面有2个参数，分别完成GET和POST请求'''
+'''一、HTTP请求类 ,分别完成GET和POST请求'''
 import requests
 class HttpRequest():
     def __init__(self,url,data=None):#空用None
@@ -50,7 +50,7 @@ class DoExcel():
         except Exception as e:
             print("读取出错了：",e)
 
-    #写入测试结果
+    #写入excel
     def writeData(self,r,c,msg):
         try:
             work_book=load_workbook(self.file_path)
@@ -83,12 +83,12 @@ class TestHttpRequest(unittest.TestCase):
             result='pass'
         except AssertionError as e:
             print("出错了",e)
-            result='file'
+            result='fail'
             raise e
-
-        #写入数据
-        self.doExcel.writeData(data_1[0]+1,7,str(response))#！！！写入时，要将字典类型转换成字符串
-        self.doExcel.writeData(data_1[0]+1,8,result)
+        finally:
+            #写入数据
+            self.doExcel.writeData(data_1[0]+1,7,str(response))#！！！写入时，要将字典类型转换成字符串
+            self.doExcel.writeData(data_1[0]+1,8,result)
 
 
     def tearDown(self):
@@ -102,8 +102,6 @@ if __name__=="__main__":
     # suite.addTests(TestHttpRequest('test_http_request'))
     loader=unittest.TestLoader()
     suite.addTests(loader.loadTestsFromTestCase(TestHttpRequest))
-    # runner=unittest.TextTestRunner()
-    # runner.run(suite)
 
     now = time.strftime('%Y-%m-%d_%H_%M_%S')#获取当前时间!!!
     file_path="test"+now+".html"

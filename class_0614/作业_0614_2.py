@@ -14,6 +14,7 @@ class DoMySql():
             cursor.execute(self.sql)
             result=cursor.fetchall()
 
+\
             cursor.close()
             cnn.close
 

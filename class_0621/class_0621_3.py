@@ -18,7 +18,7 @@ msg["To"]='2222'
 #指定发送邮件的服务器
 s=smtplib.SMTP("smtp.126.com",465)
 #登录
-s.login("januarytw@126.com","computers?'")
+s.login("januarytw@126.com","januarytw828")
 #准备发送
 s.sendmail('januarytw@126.com','20044361@qq.com',msg)
 #退出服务

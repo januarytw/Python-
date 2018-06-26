@@ -16,10 +16,10 @@ msg['Subject']="6666"
 msg["From"]='7777'
 msg["To"]='2222'
 #指定发送邮件的服务器
-s=smtplib.SMTP_SSL("smtp.qq.com",465)
+s=smtplib.SMTP("smtp.126.com",465)
 #登录
-s.login("20044361@qq.com","")
+s.login("januarytw@126.com","computers?'")
 #准备发送
-s.sendmail('20044361@qq.com','1871949595@qq.com',msg,)
+s.sendmail('januarytw@126.com','20044361@qq.com',msg)
 #退出服务
 s.quit()

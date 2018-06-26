@@ -1,0 +1,12 @@
+info信息
+warning信息
+error信息
+critical信息
+2018-06-26 16:40:29,913-INFO-class_log_1.py-huahua-日志信息:info信息
+2018-06-26 16:40:29,914-WARNING-class_log_1.py-huahua-日志信息:warning信息
+2018-06-26 16:40:29,914-ERROR-class_log_1.py-huahua-日志信息:error信息
+2018-06-26 16:40:29,914-CRITICAL-class_log_1.py-huahua-日志信息:critical信息
+2018-06-26 16:45:31,894-[INFO]-class_log_1.py-huahua-日志信息:info信息
+2018-06-26 16:45:31,894-[WARNING]-class_log_1.py-huahua-日志信息:warning信息
+2018-06-26 16:45:31,894-[ERROR]-class_log_1.py-huahua-日志信息:error信息
+2018-06-26 16:45:31,894-[CRITICAL]-class_log_1.py-huahua-日志信息:critical信息

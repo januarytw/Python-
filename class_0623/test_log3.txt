@@ -1,0 +1,4 @@
+2018-06-26 18:29:55,390-[INFO]-作业_0623_MyLog.py-andy-日志信息:info信息
+2018-06-26 18:29:55,390-[WARNING]-作业_0623_MyLog.py-andy-日志信息:warning信息
+2018-06-26 18:29:55,390-[ERROR]-作业_0623_MyLog.py-andy-日志信息:error信息
+2018-06-26 18:29:55,390-[CRITICAL]-作业_0623_MyLog.py-andy-日志信息:critical信息

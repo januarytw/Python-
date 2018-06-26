@@ -8,11 +8,12 @@ class ReadConfig:
 
     def getConfig(self,section,option):
         cf=configparser.ConfigParser()
-        cf.read(self.file)
-        config=cf.get(section,option)
-        return config
+        cf.read(self.file,encoding='UTF-8')
+        value=cf.get(section,option)
+        return value
 
-rc=ReadConfig("db.conf").getConfig("DATABASE","config")
-print (rc)
+if __name__ == '__main__':
+    rc=ReadConfig("db.conf").getConfig("DATABASE","config")
+    print (rc)
 
 # 2.写一个邮件类：请你把DDT测试用例执行完毕之后的HTML报告作为附件发给华华的邮箱： 204893985@qq.com

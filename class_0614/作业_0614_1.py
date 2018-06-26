@@ -108,3 +108,4 @@ if __name__=="__main__":
     with open(file_path,"wb") as file:
         runner=HTMLTestRunnerNew.HTMLTestRunner(stream=file, verbosity=2,title='测试报告',description='作文大全接口测试',tester='张三')
         runner.run(suite)
+#输出的html用例名称太丑了，可以用自字典的方式，在@ddt时，用unpark解析字典，在6月23日视频中最后部分提过一句

@@ -52,30 +52,32 @@ import requests
 
 doExcel=DoExcel('case.xlsx','test_data')
 excel_result=doExcel.readData()
-login_url=excel_result[3]
-login_data=eval(excel_result[4])
 
-
+url='http://119.23.241.154:8080/futureloan/mvc/api/member/login'
+data={'mobilephone':'13141222222','pwd':'123456'}
+s=requests.session()
+s.post(url,data)
 
 for item in excel_result:
-    if excel_result[1]=="注册":
+    if item[1]=="注册":
         #注册
-        login_url=item[3]
-        login_data=eval(item[4])
+        login_url=item[4]
+        login_data=eval(item[5])
         result=requests.get(login_url,login_data).json()
-        doExcel.writeData(item[0]+1,7,result)
-
-    elif excel_result[1]=="登录":
+        doExcel.writeData(item[0]+1,8,str(result))
+    elif item[1]=="登录":
         #登录
-        login_url=item[3]
-        login_data=eval(item[4])
-        result_longin=requests.post(login_url,login_data)
-        print(result_longin.json())
-        cookie_login=result_longin.cookies
+        login_url=item[4]
+        login_data=eval(item[5])
+        print(login_data)
+        result_login=requests.post(login_url,login_data).json()
+        # print(result_login)
+        doExcel.writeData(item[0]+1,8,str(result_login))
 
-    elif excel_result[1]=="充值":
+    elif item[1]=="充值":
         #充值
-        login_url=item[3]
-        login_data=eval(item[4])
-        result_recharge=requests.post(login_url,login_data,cookies=cookie_login)
-        print(result_recharge.json())
+        login_url=item[4]
+        login_data=eval(item[5])
+        result_recharge=s.post(login_url,login_data).json()
+        # print(result_recharge)
+        doExcel.writeData(item[0]+1,8,str(result_recharge))

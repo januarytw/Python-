@@ -74,8 +74,8 @@ for item in excel_result:
         try:
             login_url=item[4]
             login_data=eval(item[5])
-            print(login_data)
-            result_login=requests.post(login_url,login_data).json()
+            # print(login_data)
+            result_login=requests.get(login_url,login_data).json()
             # print(result_login)
             doExcel.writeData(item[0]+1,8,str(result_login))
         except Exception as e:

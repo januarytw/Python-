@@ -23,7 +23,7 @@ class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
         print("测试数据是：",a)
         print("目前正在执行第%s条用例"%a[0])
         global COOKIES
-        res=HttpRequest(a[4],a[5]).httpRequest(a[3],cookies=COOKIES)
+        res=HttpRequest(a[4],eval(a[5])).httpRequest(a[3],cookies=COOKIES)#!!!要将从excel中读出的字典格式装换一下
         if res.cookies!={}:#判断cookies是否为空用{},或用len(res.cookies)==0
             COOKIES=res.cookies
         print(res.json())
@@ -34,7 +34,7 @@ class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
             result='FAIL'
             raise e#!!!终止后面的代码
         finally:
-            self.t.writeData(a[0]+1,str(res.json),result)
+            self.t.write_data(a[0]+1,str(res.json()),result)
 
     def tearDown(self):
         print("测试结束")

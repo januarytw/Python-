@@ -2,7 +2,7 @@
 import unittest
 import time
 import HTMLTestRunnerNew
-from test_http_request import TestHttpRequest
+from common.test_http_request import TestHttpRequest
 
 suite=unittest.TestSuite()
 loader=unittest.TestLoader()

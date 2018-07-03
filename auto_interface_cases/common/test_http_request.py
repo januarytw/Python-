@@ -1,9 +1,9 @@
 #实现http请求测试的类
 
 import unittest
-from http_request import HttpRequest
 from do_excel import DoExcel
 from read_config import ReadConfig
+from http_request import HttpRequest
 from my_log import MyLog
 from ddt import ddt,data
 

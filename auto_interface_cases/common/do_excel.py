@@ -3,6 +3,7 @@
 '''
 
 from openpyxl import load_workbook
+# from openpyxl.styles import Font,colors
 
 class DoExcel():
     def __init__(self,file_path,sheet_name):
@@ -33,6 +34,7 @@ class DoExcel():
         #写入测试数据时，固定写入第8和9列
         sheet.cell(row,8).value=actual
         sheet.cell(row,9).value=result
+        # sheet.cell.front=front(colors=color.RED)
 
         #保存
         wb.save(self.file_path)

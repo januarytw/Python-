@@ -41,7 +41,7 @@ class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
         ip=rc.getConfig("HTTP","ip")
 
         logger.info("请求的地址为：%s"%(ip+a[4]))
-        logger.info("请求的参数为：%"%a[5])
+        logger.info("请求的参数为：%s"%a[5])
 
         res=HttpRequest(ip+a[4],eval(a[5])).httpRequest(a[3],cookies=COOKIES)#!!!要将从excel中读出的字典格式装换一下
         if res.cookies!={}:#判断cookies是否为空用{},或用len(res.cookies)==0

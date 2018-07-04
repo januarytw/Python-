@@ -1,10 +1,10 @@
 #实现http请求测试的类
 
 import unittest
-from do_excel import DoExcel
-from read_config import ReadConfig
-from http_request import HttpRequest
-from my_log import MyLog
+from common.do_excel import DoExcel#引用时要加入common，要不然在run执行的时候这里会说找不到DoEXCEL
+from common.read_config import ReadConfig
+from common.http_request import HttpRequest
+from common.my_log import MyLog
 from ddt import ddt,data
 
 #读取到的测试数据

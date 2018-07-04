@@ -1,6 +1,6 @@
 
 import logging
-from read_config import ReadConfig
+from common.read_config import ReadConfig
 
 class MyLog:
 

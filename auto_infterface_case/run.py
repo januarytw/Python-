@@ -1,20 +1,12 @@
 
 
-# from auto_interface_cases.common.read_config import ReadConfig
-#
-# rc=ReadConfig("./conf/config.conf").getConfig("HTTP","ip")
-# print(rc)
-
-
 
 
 import unittest
 import time
 import HTMLTestRunnerNew
-from auto_interface_cases.common.do_excel import DoExcel
-from auto_interface_cases.common.http_request import HttpRequest
-from auto_interface_cases.common.read_config import ReadConfig
-from auto_interface_cases.common.test_http_request import TestHttpRequest
+from common.test_http_request import TestHttpRequest
+from common.read_config import ReadConfig
 
 
 suite=unittest.TestSuite()

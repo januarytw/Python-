@@ -56,3 +56,61 @@
 2018-07-05 11:45:06,850-[INFO]-test_http_request.py-andy-日志信息:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
 2018-07-05 11:45:06,850-[INFO]-test_http_request.py-andy-日志信息:请求的参数为：{'mobilephone':'13541122222','amount':'1000.321'}
 2018-07-05 11:45:06,967-[INFO]-test_http_request.py-andy-日志信息:测试结束
+2018-07-09 11:19:54,589-[INFO]-test_http_request.py-andy-日志信息:开始测试
+2018-07-09 11:19:54,591-[INFO]-test_http_request.py-andy-日志信息:测试数据是：[1, '注册', '注册-正常注册', 'post', 'futureloan/mvc/api/member/register', "{'mobilephone':'13541122222','pwd':'123456'}", 10001]
+2018-07-09 11:19:54,591-[INFO]-test_http_request.py-andy-日志信息:目前正在执行第1条用例
+2018-07-09 11:19:54,591-[INFO]-test_http_request.py-andy-日志信息:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+2018-07-09 11:19:54,591-[INFO]-test_http_request.py-andy-日志信息:请求的参数为：{'mobilephone':'13541122222','pwd':'123456'}
+2018-07-09 11:19:54,707-[ERROR]-test_http_request.py-andy-日志信息:断言报错信息是'10001' != '20110'
+- 10001
++ 20110
+
+2018-07-09 11:19:54,736-[INFO]-test_http_request.py-andy-日志信息:测试结束
+2018-07-09 11:19:54,739-[INFO]-test_http_request.py-andy-日志信息:开始测试
+2018-07-09 11:19:54,739-[INFO]-test_http_request.py-andy-日志信息:测试数据是：[2, '注册', '密码为空', 'post', 'futureloan/mvc/api/member/register', "{'mobilephone':'13541122222','pwd':''}", 20103]
+2018-07-09 11:19:54,739-[INFO]-test_http_request.py-andy-日志信息:目前正在执行第2条用例
+2018-07-09 11:19:54,739-[INFO]-test_http_request.py-andy-日志信息:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+2018-07-09 11:19:54,739-[INFO]-test_http_request.py-andy-日志信息:请求的参数为：{'mobilephone':'13541122222','pwd':''}
+2018-07-09 11:19:54,868-[INFO]-test_http_request.py-andy-日志信息:测试结束
+2018-07-09 11:19:54,868-[INFO]-test_http_request.py-andy-日志信息:开始测试
+2018-07-09 11:19:54,868-[INFO]-test_http_request.py-andy-日志信息:测试数据是：[3, '注册', '手机格式不正确', 'post', 'futureloan/mvc/api/member/register', "{'mobilephone':'135411463110','pwd':'123456'}", 20109]
+2018-07-09 11:19:54,868-[INFO]-test_http_request.py-andy-日志信息:目前正在执行第3条用例
+2018-07-09 11:19:54,869-[INFO]-test_http_request.py-andy-日志信息:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+2018-07-09 11:19:54,869-[INFO]-test_http_request.py-andy-日志信息:请求的参数为：{'mobilephone':'135411463110','pwd':'123456'}
+2018-07-09 11:19:54,980-[INFO]-test_http_request.py-andy-日志信息:测试结束
+2018-07-09 11:19:54,982-[INFO]-test_http_request.py-andy-日志信息:开始测试
+2018-07-09 11:19:54,982-[INFO]-test_http_request.py-andy-日志信息:测试数据是：[4, '登录', '登录-正常登录', 'post', 'futureloan/mvc/api/member/login', "{'mobilephone':'13541122222','pwd':'123456'}", 10001]
+2018-07-09 11:19:54,982-[INFO]-test_http_request.py-andy-日志信息:目前正在执行第4条用例
+2018-07-09 11:19:54,982-[INFO]-test_http_request.py-andy-日志信息:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+2018-07-09 11:19:54,982-[INFO]-test_http_request.py-andy-日志信息:请求的参数为：{'mobilephone':'13541122222','pwd':'123456'}
+2018-07-09 11:19:55,141-[INFO]-test_http_request.py-andy-日志信息:测试结束
+2018-07-09 11:19:55,141-[INFO]-test_http_request.py-andy-日志信息:开始测试
+2018-07-09 11:19:55,141-[INFO]-test_http_request.py-andy-日志信息:测试数据是：[5, '登录', '手机号为空', 'post', 'futureloan/mvc/api/member/login', "{'mobilephone':'','pwd':'123456'}", 20103]
+2018-07-09 11:19:55,141-[INFO]-test_http_request.py-andy-日志信息:目前正在执行第5条用例
+2018-07-09 11:19:55,141-[INFO]-test_http_request.py-andy-日志信息:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+2018-07-09 11:19:55,141-[INFO]-test_http_request.py-andy-日志信息:请求的参数为：{'mobilephone':'','pwd':'123456'}
+2018-07-09 11:19:55,255-[INFO]-test_http_request.py-andy-日志信息:测试结束
+2018-07-09 11:19:55,255-[INFO]-test_http_request.py-andy-日志信息:开始测试
+2018-07-09 11:19:55,255-[INFO]-test_http_request.py-andy-日志信息:测试数据是：[6, '登录', '密码错误', 'post', 'futureloan/mvc/api/member/login', "{'mobilephone':'13541122222','pwd':'126'}", 20111]
+2018-07-09 11:19:55,255-[INFO]-test_http_request.py-andy-日志信息:目前正在执行第6条用例
+2018-07-09 11:19:55,255-[INFO]-test_http_request.py-andy-日志信息:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+2018-07-09 11:19:55,256-[INFO]-test_http_request.py-andy-日志信息:请求的参数为：{'mobilephone':'13541122222','pwd':'126'}
+2018-07-09 11:19:55,405-[INFO]-test_http_request.py-andy-日志信息:测试结束
+2018-07-09 11:19:55,405-[INFO]-test_http_request.py-andy-日志信息:开始测试
+2018-07-09 11:19:55,405-[INFO]-test_http_request.py-andy-日志信息:测试数据是：[7, '充值', '充值-正常充值', 'post', 'futureloan/mvc/api/member/recharge', "{'mobilephone':'13541122222','amount':'1000'}", 10001]
+2018-07-09 11:19:55,405-[INFO]-test_http_request.py-andy-日志信息:目前正在执行第7条用例
+2018-07-09 11:19:55,405-[INFO]-test_http_request.py-andy-日志信息:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+2018-07-09 11:19:55,407-[INFO]-test_http_request.py-andy-日志信息:请求的参数为：{'mobilephone':'13541122222','amount':'1000'}
+2018-07-09 11:19:55,573-[INFO]-test_http_request.py-andy-日志信息:测试结束
+2018-07-09 11:19:55,573-[INFO]-test_http_request.py-andy-日志信息:开始测试
+2018-07-09 11:19:55,573-[INFO]-test_http_request.py-andy-日志信息:测试数据是：[8, '充值', '手机号不存在', 'post', 'futureloan/mvc/api/member/recharge', "{'mobilephone':'15901129231','amount':'1000.05'}", 20104]
+2018-07-09 11:19:55,575-[INFO]-test_http_request.py-andy-日志信息:目前正在执行第8条用例
+2018-07-09 11:19:55,575-[INFO]-test_http_request.py-andy-日志信息:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+2018-07-09 11:19:55,575-[INFO]-test_http_request.py-andy-日志信息:请求的参数为：{'mobilephone':'15901129231','amount':'1000.05'}
+2018-07-09 11:19:55,720-[INFO]-test_http_request.py-andy-日志信息:测试结束
+2018-07-09 11:19:55,720-[INFO]-test_http_request.py-andy-日志信息:开始测试
+2018-07-09 11:19:55,720-[INFO]-test_http_request.py-andy-日志信息:测试数据是：[9, '充值', '金额小数大于2位', 'post', 'futureloan/mvc/api/member/recharge', "{'mobilephone':'13541122222','amount':'1000.321'}", 20116]
+2018-07-09 11:19:55,720-[INFO]-test_http_request.py-andy-日志信息:目前正在执行第9条用例
+2018-07-09 11:19:55,720-[INFO]-test_http_request.py-andy-日志信息:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+2018-07-09 11:19:55,720-[INFO]-test_http_request.py-andy-日志信息:请求的参数为：{'mobilephone':'13541122222','amount':'1000.321'}
+2018-07-09 11:19:55,835-[INFO]-test_http_request.py-andy-日志信息:测试结束

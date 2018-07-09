@@ -1,10 +1,10 @@
 
 import logging
-from common.read_config import ReadConfig
+from conf import project_path
 
 class MyLog:
 
-    def myLog(self,name,state,level,formatStr,out_file_path):
+    '''def myLog(self,name,state,level,formatStr,out_file_path):
         #创建一个日志收集器
         logger=logging.Logger(name,level)#Logger大写  定级别是用大写
         if state=='1':
@@ -35,20 +35,18 @@ class MyLog:
             fh.setFormatter(formatter)
             logger.addHandler(fh)
 
-        return logger
+        return logger'''
 
+    def myLog(self,msg,msg_level,log_name='auto_cases',level='DEBUG',formatStr,file_path=project_path.log_path):
+        #创建日志收集器,设置级别
+        logger=logging.getLogger(log_name)
+        logger.setLevel(level)
 
-if __name__ == '__main__':
-    readConfig=ReadConfig('../conf/config.conf')
-    name="andy"
-    state=readConfig.getConfig('LOG','state')
-    level=readConfig.getConfig('LOG','level')
-    formatStr=readConfig.getConfig('LOG','formatter')
-    out_file_path=readConfig.getConfig('LOG','out_file_path')
+        #设置输出渠道、设置输出级别
+        fh=logging.FileHandler(file_path,encoding='UTF-8')
+        sh=logging.StreamHandler()
+        fh.setLevel(level)
+        sh.setLevel(level)
 
-    logger=MyLog().myLog(name,state,level,formatStr,out_file_path)
-    logger.debug("siliy是傻瓜")
-    logger.info("info信息")
-    logger.warning("warning信息")
-    logger.error("error信息")
-    logger.critical("critical信息")
+        #设置输出格式
+        formatter=logging.Formatter(formatStr)

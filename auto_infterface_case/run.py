@@ -13,10 +13,13 @@ suite.addTest(loader.loadTestsFromTestCase(TestHttpRequest))
 
 now = time.strftime('%Y-%m-%d_%H_%M_%S')#获取当前时间!!!
 file_name="test"+now+".html"
+
+#执行用例，并输出报告
 with open(project_path.report_path+file_name,"wb") as file:
     runner=HTMLTestRunnerNew.HTMLTestRunner(stream=file, verbosity=2,title='测试报告',description='接口测试',tester='张三')
     runner.run(suite)
 
-sendEmail= send_email.SendEmail(username='20044361@qq.com', passwd='ywlejecyxesbcbdf', receivers='1871949595@qq.com',
-        title='HTTP日志', content='HTTP测试报告0705', file=project_path.report_path+file_name)
-sendEmail.send_mail()
+# #发送邮件
+# sendEmail= send_email.SendEmail(username='20044361@qq.com', passwd='ywlejecyxesbcbdf', receivers='1871949595@qq.com',
+#         title='HTTP日志', content='HTTP测试报告0705', file=project_path.report_path+file_name)
+# sendEmail.send_mail()

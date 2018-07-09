@@ -1,34 +1,38 @@
 #实现http请求测试的类
 
 import unittest
+
 from common.do_excel import DoExcel#引用时要加入common，要不然在run执行的时候这里会说找不到DoEXCEL
 from common.read_config import ReadConfig
 from common.http_request import HttpRequest
 from common.my_log import MyLog
 from ddt import ddt,data
+from conf import project_path
 
-#读取到的测试数据
-test_data=DoExcel('../test_data/test_case.xlsx','test_data').read_data()
-# print(test_data)
 
 #创建读取配置文件实例
-rc=ReadConfig("../conf/config.conf")
+rc=ReadConfig(project_path.config_conf_path)
 
 #创建Log实例
 name="andy"
 state=rc.getConfig('LOG','state')
 level=rc.getConfig('LOG','level')
 formatStr=rc.getConfig('LOG','formatter')
-out_file_path=rc.getConfig('LOG','out_file_path')
+out_file_path=project_path.log_path
 logger=MyLog().myLog(name,state,level,formatStr,out_file_path)
 
 COOKIES=None#全局变量
+
+#读取到的测试数据
+test_data=DoExcel(project_path.test_data_path,'test_data').read_data()
+# print(test_data)
+ip=rc.getConfig("HTTP","ip")
 
 @ddt
 class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
     def setUp(self):
         #创建操作excel的实例
-        self.t=DoExcel('../test_data/test_case.xlsx','test_data')
+        self.t=DoExcel(project_path.test_data_path,'test_data')
         logger.info("开始测试")
 
 
@@ -38,7 +42,6 @@ class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
         logger.info("目前正在执行第%s条用例"%a[0])
 
         global COOKIES
-        ip=rc.getConfig("HTTP","ip")
 
         logger.info("请求的地址为：%s"%(ip+a[4]))
         logger.info("请求的参数为：%s"%a[5])

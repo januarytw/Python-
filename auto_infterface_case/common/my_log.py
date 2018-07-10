@@ -52,7 +52,7 @@ class MyLog:
         formatter=logging.Formatter('[%(levelname)s]%(asctime)s[日志信息]:%(message)s')
         fh.setFormatter(formatter)
         sh.setFormatter(formatter)
-
+        #对接日志收集器，以及输出渠道
         logger.addHandler(sh)
         logger.addHandler(fh)
         if msg_level=='DEBUG':

@@ -1,0 +1,20 @@
+1、0703的作业中，执行部分用例时，第三个充值的用例没有成功，报错如下：
+Traceback (most recent call last):
+  File "D:\Python34\lib\site-packages\ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\Python34\TestCode\auto_infterface_case\common\test_http_request.py", line 47, in test_http_request
+    res=HttpRequest(ip+a[4],(a[5])).httpRequest(a[3],cookies=COOKIES)#!!!要将从excel中读出的字典格式装换一下
+  File "D:\Python34\TestCode\auto_infterface_case\common\http_request.py", line 15, in httpRequest
+    res=requests.post(self.url,self.param,cookies=cookies)
+  File "D:\Python34\lib\site-packages\requests\api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "D:\Python34\lib\site-packages\requests\api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\Python34\lib\site-packages\requests\sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Python34\lib\site-packages\requests\sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\Python34\lib\site-packages\requests\adapters.py", line 460, in send
+    for i in request.body:
+TypeError: 'int' object is not iterable
+还未解决

@@ -9,24 +9,22 @@ from common.my_log import MyLog
 from ddt import ddt,data
 from conf import project_path
 
+#用例的执行模式
+mode=ReadConfig(project_path.case_conf_path).getConfig('CASE','mode')
+case_list=eval(ReadConfig(project_path.case_conf_path).getConfig('CASE','case_list'))#！！！此处需要EVAL转换一下，要不然会在读取部分用例时，遍历case_list时报错
+# print(mode,case_list)
 
-#创建读取配置文件实例
-rc=ReadConfig(project_path.config_conf_path)
 
-#创建Log实例
-name="andy"
-state=rc.getConfig('LOG','state')
-level=rc.getConfig('LOG','level')
-formatStr=rc.getConfig('LOG','formatter')
-out_file_path=project_path.log_path
-logger=MyLog().myLog(name,state,level,formatStr,out_file_path)
-
-COOKIES=None#全局变量
+#COOKIES全局变量
+COOKIES=None
 
 #读取到的测试数据
-test_data=DoExcel(project_path.test_data_path,'test_data').read_data()
-# print(test_data)
-ip=rc.getConfig("HTTP","ip")
+test_data=DoExcel(project_path.test_data_path,'test_data').read_data(mode,case_list)
+ip=ReadConfig(project_path.config_conf_path).getConfig("HTTP","ip")
+# print('test_date:',test_data)
+#创建Log实例
+logger=MyLog()
+
 
 @ddt
 class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
@@ -45,8 +43,8 @@ class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
 
         logger.info("请求的地址为：%s"%(ip+a[4]))
         logger.info("请求的参数为：%s"%a[5])
-
-        res=HttpRequest(ip+a[4],eval(a[5])).httpRequest(a[3],cookies=COOKIES)#!!!要将从excel中读出的字典格式装换一下
+        print('a5的类型',type(a[5]))
+        res=HttpRequest(ip+a[4],(a[5])).httpRequest(a[3],cookies=COOKIES)#!!!要将从excel中读出的字典格式装换一下
         if res.cookies!={}:#判断cookies是否为空用{},或用len(res.cookies)==0
             COOKIES=res.cookies
         # print(res.json())

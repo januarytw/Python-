@@ -68,7 +68,7 @@ class DoExcel():
         wb=load_workbook(self.file_path)
         sheet=wb[self.sheet_name]
         test_data=[]#存储所有行的数据
-        if mode=='1':
+        if mode=='1':#执行所有用例
             for i in range(2,sheet.max_row+1):
                 sub_data=[]#存储每一行的数据
                 for j in range(1,8):
@@ -85,10 +85,11 @@ class DoExcel():
                 sub_data=[]#存储每一行的数据
                 for j in range(1,8):
                     if j==6:
-                        param=eval(sheet.cell(i+1,6).value)#i+1的意思：是从第二行开始的
+                        param=eval(sheet.cell(i+1,6).value)#i+1的意思 ：是从第二行开始的
                         if param['mobilephone']=='first_tel':
                             param['mobilephone']=no_reg_tel
-                            sub_data.append(param)
+                        sub_data.append(param)#如果有first_tel这个就替换后加到列表中，如果没有就直接加入
+
                     else:
                         sub_data.append(sheet.cell(i+1,j).value)
                 test_data.append(sub_data)

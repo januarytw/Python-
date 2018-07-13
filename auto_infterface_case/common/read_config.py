@@ -14,5 +14,5 @@ if __name__ == '__main__':
     # import os
     # path=os.path.abspath("..")
     # print(path)
-    rc=ReadConfig("../conf/config.conf").getConfig("HTTP","ip")
+    rc=ReadConfig("../conf/http.conf").getConfig("HTTP","ip")
     print (rc)

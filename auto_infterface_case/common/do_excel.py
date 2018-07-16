@@ -38,13 +38,18 @@ class DoExcel():
         if mode=='1':#读取全部的用例
             for i in range(2,sheet.max_row+1):#从excel的第2行开始读；range取左不取右，所以要+1
                 sub_data=[]#存储每一行的数据
-                for j in range(1,8):
+                for j in range(1,9):
                     if j==6:
                         param=eval(sheet.cell(i,6).value)
                         # print('param=eval(sheet.cell(i+1,6).value)的值为：%s,类型为%s'%(param,type(param)))
                         if param['mobilephone']=='first_tel':
                             param['mobilephone']=no_reg_tel
                         sub_data.append(param)
+                    elif j==8:
+                        check_sql=eval(sheet.cell(i,8).value)
+                        if check_sql['sql_data']=='first_tel':
+                            check_sql['sql_data']=no_reg_tel
+                        sub_data.append(check_sql)
                     else:
                         sub_data.append(sheet.cell(i,j).value)
                 test_data.append(sub_data)
@@ -57,6 +62,11 @@ class DoExcel():
                         if param["mobilephone"]=='first_tel':
                             param['mobilephone']=no_reg_tel
                         sub_data.append(param)#如果有first_tel这个就替换后加到列表中，如果没有就直接加入
+                    elif j==8:
+                        check_sql=eval(sheet.cell(i,8).value)
+                        if check_sql['sql_data']=='first_tel':
+                            check_sql['sql_data']=no_reg_tel
+                        sub_data.append(check_sql)
                     else:
                         sub_data.append(sheet.cell(i+1,j).value)
                 test_data.append(sub_data)
@@ -98,15 +108,18 @@ class DoExcel():
     #     return test_data
 
     #写入excel
-    def write_data(self,row,actual,result):
+    def write_data(self,row,mode,actual,result):
         #载入文件
         wb=load_workbook(self.file_path)
         #指定工作表
         sheet=wb[self.sheet_name]
         #写入测试数据时，固定写入第8和9列
-        sheet.cell(row,8).value=actual
-        sheet.cell(row,9).value=result
-        # sheet.cell.front=front(colors=color.RED)
+        if mode==1:
+            sheet.cell(row,9).value=actual
+            sheet.cell(row,10).value=result
+        elif mode==2:
+            sheet.cell(row,11).value=actual
+            sheet.cell(row,12).value=result
         #保存
         wb.save(self.file_path)
 

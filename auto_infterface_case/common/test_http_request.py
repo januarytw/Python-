@@ -8,6 +8,7 @@ from common.http_request import HttpRequest
 from common.my_log import MyLog
 from ddt import ddt,data
 from conf import project_path
+from common.do_mysql import DoMysql
 
 #用例的执行模式
 mode=ReadConfig(project_path.case_conf_path).getConfig('CASE','mode')
@@ -48,6 +49,19 @@ class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
         if res.cookies!={}:#判断cookies是否为空用{},或用len(res.cookies)==0
             COOKIES=res.cookies
         # print(res.json())
+
+        #检查数据库的值
+        sql_result=DoMysql().do_mysql(a[7]['sql'],(str(a[7]['sql_data']),))
+        try:
+            self.assertEqual(str(sql_result),a[7]['expected'])
+            check_sql_result='PASS'
+        except AssertionError as e:
+            check_sql_result='FAIL'
+            raise e
+        finally:
+            self.t.write_data(a[0]+1,2,str(sql_result),check_sql_result)
+
+        #检查excel中的预期值
         try:
             self.assertEqual(str(a[6]),res.json()['code'])#!!!预期结果要转换成str
             result='PASS'
@@ -56,7 +70,7 @@ class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
             result='FAIL'
             raise e#!!!终止后面的代码
         finally:
-            self.t.write_data(a[0]+1,str(res.json()),result)
+            self.t.write_data(a[0]+1,1,str(res.json()),result)
 
     def tearDown(self):
         logger.info("测试结束")

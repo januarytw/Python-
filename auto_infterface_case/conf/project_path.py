@@ -17,8 +17,6 @@ project_path=ReadConfig(project_conf_path).getConfig('PROJECT_PATH','project_pat
 test_data_path=os.path.join(project_path,'test_data','test_case.xlsx')
 #print(test_data_path)
 
-#http配置文件的路径
-config_conf_path=os.path.join(project_path,'conf','http.conf')
 
 #日志输出路径
 log_path=os.path.join(project_path,'test_result','log','test_log.txt')
@@ -28,3 +26,10 @@ report_path=os.path.join(project_path,'test_result','http_report','html_report')
 
 #用例配置文件的路径
 case_conf_path=os.path.join(project_path,'conf','case.conf')
+
+#http配置文件的路径
+config_conf_path=os.path.join(project_path,'conf','http.conf')
+
+#数据库配置文件路径
+db_conf_path=os.path.join(project_path,'conf','db.conf')
+

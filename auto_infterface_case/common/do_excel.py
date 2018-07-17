@@ -26,8 +26,8 @@ class DoExcel():
         sheet.cell(1,2).value=new_tel
         wb.save(self.file_path)
 
-    #读取excel中的用例
-    def read_data(self,mode,case_list):#mode：读取用例模式，0为指定用例，1为全部用例。case_list：用例列表
+    #读取excel中的用例,返回的数据类型为list
+    def read_data_to_list(self,mode,case_list):#mode：读取用例模式，0为指定用例，1为全部用例。case_list：用例列表
         #载入文件
         wb=load_workbook(self.file_path)
         #指定工作表
@@ -74,38 +74,101 @@ class DoExcel():
 
         return test_data
 
-    # def read_data2(self,mode,case_list):
-    #     no_reg_tel=self.no_reg_tel()
-    #     wb=load_workbook(self.file_path)
-    #     sheet=wb[self.sheet_name]
-    #     test_data=[]#存储所有行的数据
-    #     if mode=='1':#执行所有用例
-    #         for i in range(2,sheet.max_row+1):
-    #             sub_data=[]#存储每一行的数据
-    #             for j in range(1,8):
-    #                 if j==6:
-    #                     param=eval(sheet.cell(i,6).value)
-    #                     if param['mobilephone']=='first_tel':
-    #                         param['mobilephone']=no_reg_tel
-    #                         sub_data.append(param)
-    #                 else:
-    #                     sub_data.append(sheet.cell(i,j).value)
-    #             test_data.append(sub_data)
-    #     elif mode=='0':
-    #         for i in case_list:#！！！此处需要case_list是list类型的，从配置文件里读取出来要进行转换
-    #             sub_data=[]#存储每一行的数据
-    #             for j in range(1,8):
-    #                 if j==6:
-    #                     param=eval(sheet.cell(i+1,6).value)#i+1的意思 ：是从第二行开始的
-    #                     if param['mobilephone']=='first_tel':
-    #                         param['mobilephone']=no_reg_tel
-    #                     sub_data.append(param)#如果有first_tel这个就替换后加到列表中，如果没有就直接加入
-    #
-    #                 else:
-    #                     sub_data.append(sheet.cell(i+1,j).value)
-    #             test_data.append(sub_data)
-    #     self.update_tel(str(int(no_reg_tel)+1))
-    #     return test_data
+    #读取excel中的用例,返回的数据类型为dict
+    def read_data(self,mode,case_list):#mode：读取用例模式，0为指定用例，1为全部用例。case_list：用例列表
+        #载入文件
+        wb=load_workbook(self.file_path)
+        #指定工作表
+        sheet=wb[self.sheet_name]
+        #实现每一行数据存在一个列表里面，然后所有行的数据存在一个大列表里面
+        test_data=[]#存储所有行的数据
+        no_reg_tel=self.no_reg_tel()
+        #方法一
+        # if mode=='1':
+        #     for i in range(2,sheet.max_row+1):
+        #         sub_data={}
+        #         sub_data['case_id']=sheet.cell(i,1).value
+        #         sub_data['method']=sheet.cell(i,4).value
+        #         sub_data['url']=sheet.cell(i,5).value
+        #         sub_data['expect_result']=sheet.cell(i,7).value
+        #
+        #         #对请求参数param进行变量替换
+        #         if sheet.cell(i,6).value.find('${no_reg_tel}')!=-1:
+        #             new_param=sheet.cell(i,6).value.replace('${no_reg_tel}',no_reg_tel)
+        #         else:
+        #             new_param=sheet.cell(i,6).value
+        #         sub_data['params']=new_param
+        #
+        #         #对check_sql进行变量替换
+        #         if sheet.cell(i,8).value!=None and sheet.cell(i,8).value.find('${no_reg_tel}')!=-1:
+        #             new_param=sheet.cell(i,8).value.replace('${no_reg_tel}',no_reg_tel)
+        #         else:
+        #             new_param=sheet.cell(i,8).value
+        #         sub_data['params']=new_param
+        #         test_data.append(sub_data)
+        #
+        # elif mode=='0':
+        #     for i in case_list:
+        #         sub_data={}#存到一个字典里面sub_data={}
+        #         sub_data['case_id']=sheet.cell(i+1,1).value
+        #         sub_data['method']=sheet.cell(i+1,4).value
+        #         sub_data['url']=sheet.cell(i+1,5).value
+        #         sub_data['expect_result']=sheet.cell(i+1,7).value
+        #
+        #         #对请求参数param进行替换
+        #         if sheet.cell(i+1,6).value.find('${no_reg_tel}')!=-1:
+        #            new_param=sheet.cell(i+1,6).value.replace('${no_reg_tel}',str(no_reg_tel))
+        #         else:
+        #            new_param=sheet.cell(i+1,6).value
+        #         sub_data['params']=new_param
+        #
+        #         #对check_sql去进行更新值
+        #         if sheet.cell(i+1,8).value.find('${fno_reg_tel}')!=-1:
+        #            new_param=sheet.cell(i+1,8).value.replace('${no_reg_tel}',str(no_reg_tel))
+        #         else:
+        #            new_param=sheet.cell(i+1,8).value
+        #         sub_data['check_sql']=new_param
+        #         test_data.append(sub_data)
+        #
+        # self.update_tel(str(int(no_reg_tel)+1))
+        #
+        # return test_data
+
+        #方法二
+        for i in (2,sheet.max_row+1):
+            sub_data={}#存到一个字典里面sub_data={}
+            sub_data['case_id']=sheet.cell(i+1,1).value
+            sub_data['method']=sheet.cell(i+1,4).value
+            sub_data['url']=sheet.cell(i+1,5).value
+            sub_data['expect_result']=sheet.cell(i+1,7).value
+            #对参数param进行替换
+            if sheet.cell(i,6).value.find('${no_reg_tel}')!=-1:
+                new_param=sheet.cell(i,6).value.replace('${no_reg_tel}',str(no_reg_tel))
+            else:
+                new_param=sheet.cell(i,6).value
+            sub_data['params']=new_param
+
+            #对check_sql去进行更新值
+            if sheet.cell(i,8).value!=None and sheet.cell(i,8).value.find('${no_reg_tel}')!=-1:
+                new_param=sheet.cell(i,8).value.replace('${no_reg_tel}',str(no_reg_tel))
+            else:
+                new_param=sheet.cell(i,8).value
+            sub_data['check_sql']=new_param
+
+            test_data.append(sub_data)#所有的数据都存在test_data里面
+
+        if mode=='1':
+            final_data=test_data
+        else:
+            final_data=[]
+            for item in test_data:
+                if item['case_id'] in case_list:
+                    final_data.append(item)
+
+        self.update_tel(str(int(no_reg_tel)+1))
+
+        return final_data
+
 
     #写入excel
     def write_data(self,row,mode,actual,result):

@@ -12,7 +12,8 @@ from common.do_mysql import DoMysql
 
 #用例的执行模式
 mode=ReadConfig(project_path.case_conf_path).getConfig('CASE','mode')
-case_list=eval(ReadConfig(project_path.case_conf_path).getConfig('CASE','case_list'))#！！！此处需要EVAL转换一下，要不然会在读取部分用例时，遍历case_list时报错
+#！！！此处需要EVAL转换一下，要不然会在读取部分用例时，遍历case_list时报错
+case_list=eval(ReadConfig(project_path.case_conf_path).getConfig('CASE','case_list'))
 # print(mode,case_list)
 
 
@@ -45,7 +46,7 @@ class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
         logger.info("请求的地址为：%s"%(ip+a[4]))
         logger.info("请求的参数为：%s"%a[5])
         print('a5的类型',type(a[5]))
-        res=HttpRequest(ip+a[4],(a[5])).httpRequest(a[3],cookies=COOKIES)#!!!要将从excel中读出的字典格式装换一下
+        res=HttpRequest(ip+a[4],(a[5])).httpRequest(a[3],cookies=COOKIES)
         if res.cookies!={}:#判断cookies是否为空用{},或用len(res.cookies)==0
             COOKIES=res.cookies
         # print(res.json())

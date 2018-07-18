@@ -38,40 +38,49 @@ class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
 
     @data(*test_data)
     def test_http_request(self,a):
-        logger.info("测试数据是："+str(a))#!!!括号中不能用逗号的方式传递变量值
-        logger.info("目前正在执行第%s条用例"%a[0])
+        logger.info("测试数据是：{0}".format(a))#!!!括号中不能用逗号的方式传递变量值
+        logger.info("目前正在执行第%s条用例"%a['case_id'])
 
         global COOKIES
 
-        logger.info("请求的地址为：%s"%(ip+a[4]))
-        logger.info("请求的参数为：%s"%a[5])
-        print('a5的类型',type(a[5]))
-        res=HttpRequest(ip+a[4],(a[5])).httpRequest(a[3],cookies=COOKIES)
+        logger.info("请求的地址为：%s"%(ip+a['url']))
+        logger.info("请求的参数为：%s"%a['param'])
+        # print('a5的类型',type(a[5]))
+
+        #此方法是针对list形式
+        # res=HttpRequest(ip+a[4],(a[5])).httpRequest(a[3],cookies=COOKIES)
+        #此方法是针对字典取值，可以根据key取value值
+        res=HttpRequest(ip+a['url'],eval(a['param'])).httpRequest(a['method'],cookies=COOKIES)
+
         if res.cookies!={}:#判断cookies是否为空用{},或用len(res.cookies)==0
             COOKIES=res.cookies
         # print(res.json())
 
         #检查数据库的值
-        sql_result=DoMysql().do_mysql(a[7]['sql'],(str(a[7]['sql_data']),))
-        try:
-            self.assertEqual(str(sql_result),a[7]['expected'])
-            check_sql_result='PASS'
-        except AssertionError as e:
-            check_sql_result='FAIL'
-            raise e
-        finally:
-            self.t.write_data(a[0]+1,2,str(sql_result),check_sql_result)
+        # sql_result=DoMysql().do_mysql(a[7]['sql'],(str(a[7]['sql_data']),))
+
+        #判断是否对数据库进行检查
+        if a['check_sql']!=None:
+            sql_result=DoMysql().do_mysql(eval(a['check_sql'])['sql'])
+            try:
+                self.assertEqual(eval(a['check_sql'])['expected'],str(sql_result))
+                check_sql_result='PASS'
+            except AssertionError as e:
+                check_sql_result='FAIL'
+                raise e
+            finally:
+                self.t.write_data(int(a['case_id'])+1,2,str(sql_result),check_sql_result)
 
         #检查excel中的预期值
         try:
-            self.assertEqual(str(a[6]),res.json()['code'])#!!!预期结果要转换成str
+            self.assertEqual(str(a['expect_result']),res.json()['code'])#!!!预期结果要转换成str
             result='PASS'
         except AssertionError as e:
             logger.error("断言报错信息是%s"%e)
             result='FAIL'
             raise e#!!!终止后面的代码
         finally:
-            self.t.write_data(a[0]+1,1,str(res.json()),result)
+            self.t.write_data(int(a['case_id'])+1,1,str(res.json()),result)
 
     def tearDown(self):
         logger.info("测试结束")

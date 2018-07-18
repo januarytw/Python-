@@ -2,7 +2,7 @@ import os
 from common.read_config import ReadConfig
 
 
-print(os.path.split(os.path.realpath(__file__)))
+# print(os.path.split(os.path.realpath(__file__)))
 
 project_conf_path=os.path.split(os.path.realpath(__file__))[0]+'\project.conf'
 # print(project_conf_path)

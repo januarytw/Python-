@@ -83,6 +83,7 @@ class DoExcel():
         #实现每一行数据存在一个列表里面，然后所有行的数据存在一个大列表里面
         test_data=[]#存储所有行的数据
         no_reg_tel=self.no_reg_tel()
+
         #方法一
         # if mode=='1':
         #     for i in range(2,sheet.max_row+1):
@@ -135,7 +136,7 @@ class DoExcel():
         # return test_data
 
         #方法二
-        for i in (2,sheet.max_row+1):
+        for i in range(2,sheet.max_row+1):
             sub_data={}#存到一个字典里面sub_data={}
             sub_data['case_id']=sheet.cell(i+1,1).value
             sub_data['method']=sheet.cell(i+1,4).value

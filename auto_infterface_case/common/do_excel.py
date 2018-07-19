@@ -138,10 +138,10 @@ class DoExcel():
         #方法二
         for i in range(2,sheet.max_row+1):
             sub_data={}#存到一个字典里面sub_data={}
-            sub_data['case_id']=sheet.cell(i+1,1).value
-            sub_data['method']=sheet.cell(i+1,4).value
-            sub_data['url']=sheet.cell(i+1,5).value
-            sub_data['expect_result']=sheet.cell(i+1,7).value
+            sub_data['case_id']=sheet.cell(i,1).value
+            sub_data['method']=sheet.cell(i,4).value
+            sub_data['url']=sheet.cell(i,5).value
+            sub_data['expect_result']=sheet.cell(i,7).value
             #对参数param进行替换
             if sheet.cell(i,6).value.find('${no_reg_tel}')!=-1:
                 new_param=sheet.cell(i,6).value.replace('${no_reg_tel}',str(no_reg_tel))

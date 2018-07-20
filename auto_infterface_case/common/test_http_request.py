@@ -44,13 +44,14 @@ class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
         global COOKIES
 
         logger.info("请求的地址为：%s"%(ip+a['url']))
-        logger.info("请求的参数为：%s"%a['param'])
+        logger.info("请求的参数为：%s"%a['params'])
         # print('a5的类型',type(a[5]))
 
         #此方法是针对list形式
         # res=HttpRequest(ip+a[4],(a[5])).httpRequest(a[3],cookies=COOKIES)
         #此方法是针对字典取值，可以根据key取value值
-        res=HttpRequest(ip+a['url'],eval(a['param'])).httpRequest(a['method'],cookies=COOKIES)
+        res=HttpRequest(ip+a['url'],eval(a['params'])).httpRequest(a['method'],cookies=COOKIES)
+        print(res.json())
 
         if res.cookies!={}:#判断cookies是否为空用{},或用len(res.cookies)==0
             COOKIES=res.cookies

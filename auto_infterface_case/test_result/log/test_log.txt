@@ -1,0 +1,30 @@
+[INFO]2018-07-20 11:52:41,115[日志信息]:开始测试
+[INFO]2018-07-20 11:52:41,115[日志信息]:测试数据是：{'url': 'futureloan/mvc/api/member/register', 'case_id': 1, 'check_sql': '{"sql":"select count(*) from member where mobilephone=13541122374","expected":"(1,)"}', 'expect_result': 10001, 'method': 'post', 'params': "{'mobilephone': '13541122374','pwd':'123456'}"}
+[INFO]2018-07-20 11:52:41,115[日志信息]:目前正在执行第1条用例
+[INFO]2018-07-20 11:52:41,115[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-20 11:52:41,115[日志信息]:请求的参数为：{'mobilephone': '13541122374','pwd':'123456'}
+[INFO]2018-07-20 11:52:41,655[日志信息]:测试结束
+[INFO]2018-07-20 11:52:41,657[日志信息]:开始测试
+[INFO]2018-07-20 11:52:41,657[日志信息]:测试数据是：{'url': 'futureloan/mvc/api/member/register', 'case_id': 2, 'check_sql': None, 'expect_result': 20103, 'method': 'post', 'params': "{'mobilephone':'13541122222','pwd':''}"}
+[INFO]2018-07-20 11:52:41,657[日志信息]:目前正在执行第2条用例
+[INFO]2018-07-20 11:52:41,657[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-20 11:52:41,657[日志信息]:请求的参数为：{'mobilephone':'13541122222','pwd':''}
+[INFO]2018-07-20 11:52:41,786[日志信息]:测试结束
+[INFO]2018-07-20 11:52:41,788[日志信息]:开始测试
+[INFO]2018-07-20 11:52:41,788[日志信息]:测试数据是：{'url': 'futureloan/mvc/api/member/register', 'case_id': 3, 'check_sql': None, 'expect_result': 20109, 'method': 'post', 'params': "{'mobilephone':'135411463110','pwd':'123456'}"}
+[INFO]2018-07-20 11:52:41,789[日志信息]:目前正在执行第3条用例
+[INFO]2018-07-20 11:52:41,789[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-20 11:52:41,789[日志信息]:请求的参数为：{'mobilephone':'135411463110','pwd':'123456'}
+[INFO]2018-07-20 11:52:41,950[日志信息]:测试结束
+[INFO]2018-07-20 11:52:41,950[日志信息]:开始测试
+[INFO]2018-07-20 11:52:41,950[日志信息]:测试数据是：{'url': 'futureloan/mvc/api/member/login', 'case_id': 4, 'check_sql': None, 'expect_result': 10001, 'method': 'post', 'params': "{'mobilephone': '13541122374','pwd':'123456'}"}
+[INFO]2018-07-20 11:52:41,951[日志信息]:目前正在执行第4条用例
+[INFO]2018-07-20 11:52:41,953[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-20 11:52:41,954[日志信息]:请求的参数为：{'mobilephone': '13541122374','pwd':'123456'}
+[INFO]2018-07-20 11:52:42,127[日志信息]:测试结束
+[INFO]2018-07-20 11:52:42,128[日志信息]:开始测试
+[INFO]2018-07-20 11:52:42,128[日志信息]:测试数据是：{'url': 'futureloan/mvc/api/member/login', 'case_id': 5, 'check_sql': None, 'expect_result': 20103, 'method': 'post', 'params': "{'mobilephone':'','pwd':'123456'}"}
+[INFO]2018-07-20 11:52:42,128[日志信息]:目前正在执行第5条用例
+[INFO]2018-07-20 11:52:42,128[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-20 11:52:42,128[日志信息]:请求的参数为：{'mobilephone':'','pwd':'123456'}
+[INFO]2018-07-20 11:52:42,255[日志信息]:测试结束

@@ -61,10 +61,10 @@ class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
         # sql_result=DoMysql().do_mysql(a[7]['sql'],(str(a[7]['sql_data']),))
 
         #判断是否对数据库进行检查
-        if a['check_sql']!=None:
+        if a['check_sql']!=None:#是否需要对数据库进行检查
             sql_result=DoMysql().do_mysql(eval(a['check_sql'])['sql'])
             try:
-                self.assertEqual(eval(a['check_sql'])['expected'],str(sql_result))
+                self.assertEqual(eval(a['check_sql'])['expected'],str(sql_result))#！！！a['check_sql]['expected'] 这种用法错误，应将前面转换成字典类型
                 check_sql_result='PASS'
             except AssertionError as e:
                 check_sql_result='FAIL'

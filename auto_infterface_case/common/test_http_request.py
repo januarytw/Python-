@@ -51,7 +51,8 @@ class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
         # res=HttpRequest(ip+a[4],(a[5])).httpRequest(a[3],cookies=COOKIES)
         #此方法是针对字典取值，可以根据key取value值
         res=HttpRequest(ip+a['url'],eval(a['params'])).httpRequest(a['method'],cookies=COOKIES)
-        print(res.json())
+        print(type(res.json()))
+        print(type(res))
 
         if res.cookies!={}:#判断cookies是否为空用{},或用len(res.cookies)==0
             COOKIES=res.cookies
@@ -74,7 +75,8 @@ class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
 
         #检查excel中的预期值
         try:
-            self.assertEqual(str(a['expect_result']),res.json()['code'])#!!!预期结果要转换成str
+            self.assertEqual(eval(a['expect_result']),(res.json()))#!!!预期结果要转换成str
+            print("(a['expect_result'])的类型",type(a['expect_result']))
             result='PASS'
         except AssertionError as e:
             logger.error("断言报错信息是%s"%e)

@@ -17,4 +17,10 @@ Traceback (most recent call last):
   File "D:\Python34\lib\site-packages\requests\adapters.py", line 460, in send
     for i in request.body:
 TypeError: 'int' object is not iterable
-还未解决
+已经解决：没有在代码尾部运行的原因
+
+
+2、数据库类型有点迷，总结一下
+    执行完sql语句的类型的元组类型
+    执行完so_excel后，返回的类型list
+

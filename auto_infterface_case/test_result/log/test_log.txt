@@ -576,3 +576,361 @@
 [INFO]2018-07-25 15:43:44,542[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
 [INFO]2018-07-25 15:43:44,542[日志信息]:请求的参数为：{'mobilephone':'15901129231','amount':'1000.05'}
 [INFO]2018-07-25 15:43:44,676[日志信息]:测试结束
+[INFO]2018-07-26 11:48:18,325[日志信息]:开始测试
+[INFO]2018-07-26 11:48:18,326[日志信息]:测试数据是：{'method': 'post', 'check_sql': '{"sql":"select count(*) from member where mobilephone=13541122392","expected":"(1,)"}', 'params': "{'mobilephone': '13541122392','pwd':'123456'}", 'expect_result': "{'msg': '注册成功', 'status': 1, 'data': None, 'code': '10001'}", 'case_id': 1, 'url': 'futureloan/mvc/api/member/register'}
+[INFO]2018-07-26 11:48:18,326[日志信息]:目前正在执行第1条用例
+[INFO]2018-07-26 11:48:18,326[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 11:48:18,326[日志信息]:请求的参数为：{'mobilephone': '13541122392','pwd':'123456'}
+[INFO]2018-07-26 11:48:18,867[日志信息]:测试结束
+[INFO]2018-07-26 11:48:18,868[日志信息]:开始测试
+[INFO]2018-07-26 11:48:18,868[日志信息]:测试数据是：{'method': 'post', 'check_sql': None, 'params': "{'mobilephone':'13541122222','pwd':''}", 'expect_result': "{'msg': '密码不能为空', 'status': 0, 'data': None, 'code': '20103'}", 'case_id': 2, 'url': 'futureloan/mvc/api/member/register'}
+[INFO]2018-07-26 11:48:18,868[日志信息]:目前正在执行第2条用例
+[INFO]2018-07-26 11:48:18,868[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 11:48:18,869[日志信息]:请求的参数为：{'mobilephone':'13541122222','pwd':''}
+[INFO]2018-07-26 11:48:18,987[日志信息]:测试结束
+[INFO]2018-07-26 11:48:18,989[日志信息]:开始测试
+[INFO]2018-07-26 11:48:18,990[日志信息]:测试数据是：{'method': 'post', 'check_sql': None, 'params': "{'mobilephone':'135411463110','pwd':'123456'}", 'expect_result': "{'msg': '手机号码格式不正确', 'status': 0, 'data': None, 'code': '20109'}", 'case_id': 3, 'url': 'futureloan/mvc/api/member/register'}
+[INFO]2018-07-26 11:48:18,990[日志信息]:目前正在执行第3条用例
+[INFO]2018-07-26 11:48:18,990[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 11:48:18,990[日志信息]:请求的参数为：{'mobilephone':'135411463110','pwd':'123456'}
+[INFO]2018-07-26 11:48:19,121[日志信息]:测试结束
+[INFO]2018-07-26 11:48:19,122[日志信息]:开始测试
+[INFO]2018-07-26 11:48:19,122[日志信息]:测试数据是：{'method': 'post', 'check_sql': None, 'params': "{'mobilephone': '13541122392','pwd':'123456'}", 'expect_result': "{'msg': '登录成功', 'status': 1, 'data': None, 'code': '10001'}", 'case_id': 4, 'url': 'futureloan/mvc/api/member/login'}
+[INFO]2018-07-26 11:48:19,124[日志信息]:目前正在执行第4条用例
+[INFO]2018-07-26 11:48:19,124[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-26 11:48:19,125[日志信息]:请求的参数为：{'mobilephone': '13541122392','pwd':'123456'}
+[INFO]2018-07-26 11:48:19,250[日志信息]:测试结束
+[INFO]2018-07-26 11:48:19,250[日志信息]:开始测试
+[INFO]2018-07-26 11:48:19,250[日志信息]:测试数据是：{'method': 'post', 'check_sql': None, 'params': "{'mobilephone':'','pwd':'123456'}", 'expect_result': "{'msg': '手机号不能为空', 'status': 0, 'data': None, 'code': '20103'}", 'case_id': 5, 'url': 'futureloan/mvc/api/member/login'}
+[INFO]2018-07-26 11:48:19,252[日志信息]:目前正在执行第5条用例
+[INFO]2018-07-26 11:48:19,252[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-26 11:48:19,252[日志信息]:请求的参数为：{'mobilephone':'','pwd':'123456'}
+[INFO]2018-07-26 11:48:19,368[日志信息]:测试结束
+[INFO]2018-07-26 11:48:19,369[日志信息]:开始测试
+[INFO]2018-07-26 11:48:19,369[日志信息]:测试数据是：{'method': 'post', 'check_sql': None, 'params': "{'mobilephone':'13541122222','amount':'1000'}", 'expect_result': "{'msg': '充值成功', 'status': 1, 'data': {'id': '${id}', 'pwd': 'E10ADC3949BA59ABBE56E057F20F883E', 'regname': '小蜜蜂', 'type': '1', 'mobilephone': '13541122392', 'regtime':'${regtime}', 'leaveamount': '25000.00'}, 'code': '10001'}", 'case_id': 6, 'url': 'futureloan/mvc/api/member/recharge'}
+[INFO]2018-07-26 11:48:19,369[日志信息]:目前正在执行第6条用例
+[INFO]2018-07-26 11:48:19,371[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+[INFO]2018-07-26 11:48:19,371[日志信息]:请求的参数为：{'mobilephone':'13541122222','amount':'1000'}
+[INFO]2018-07-26 11:48:19,490[日志信息]:测试结束
+[INFO]2018-07-26 11:48:19,493[日志信息]:开始测试
+[INFO]2018-07-26 11:48:19,493[日志信息]:测试数据是：{'method': 'post', 'check_sql': None, 'params': "{'mobilephone':'15901129231','amount':'1000.05'}", 'expect_result': "{'msg': '此手机号对应的会员不存在', 'status': 0, 'data': None, 'code': '20104'}", 'case_id': 7, 'url': 'futureloan/mvc/api/member/recharge'}
+[INFO]2018-07-26 11:48:19,493[日志信息]:目前正在执行第7条用例
+[INFO]2018-07-26 11:48:19,493[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+[INFO]2018-07-26 11:48:19,494[日志信息]:请求的参数为：{'mobilephone':'15901129231','amount':'1000.05'}
+[INFO]2018-07-26 11:48:19,621[日志信息]:测试结束
+[INFO]2018-07-26 15:01:21,234[日志信息]:开始测试
+[INFO]2018-07-26 15:01:21,234[日志信息]:测试数据是：{'expect_result': "{'msg': '注册成功', 'status': 1, 'data': None, 'code': '10001'}", 'case_id': 1, 'params': "{'mobilephone': '13541122393','pwd':'123456'}", 'method': 'post', 'url': 'futureloan/mvc/api/member/register', 'check_sql': '{"sql":"select count(*) from member where mobilephone=13541122393","expected":"(1,)"}'}
+[INFO]2018-07-26 15:01:21,236[日志信息]:目前正在执行第1条用例
+[INFO]2018-07-26 15:01:21,236[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 15:01:21,236[日志信息]:请求的参数为：{'mobilephone': '13541122393','pwd':'123456'}
+[INFO]2018-07-26 15:01:21,802[日志信息]:测试结束
+[INFO]2018-07-26 15:01:21,803[日志信息]:开始测试
+[INFO]2018-07-26 15:01:21,803[日志信息]:测试数据是：{'expect_result': "{'msg': '密码不能为空', 'status': 0, 'data': None, 'code': '20103'}", 'case_id': 2, 'params': "{'mobilephone':'13541122222','pwd':''}", 'method': 'post', 'url': 'futureloan/mvc/api/member/register', 'check_sql': None}
+[INFO]2018-07-26 15:01:21,803[日志信息]:目前正在执行第2条用例
+[INFO]2018-07-26 15:01:21,805[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 15:01:21,805[日志信息]:请求的参数为：{'mobilephone':'13541122222','pwd':''}
+[INFO]2018-07-26 15:01:21,937[日志信息]:测试结束
+[INFO]2018-07-26 15:01:21,937[日志信息]:开始测试
+[INFO]2018-07-26 15:01:21,937[日志信息]:测试数据是：{'expect_result': "{'msg': '手机号码格式不正确', 'status': 0, 'data': None, 'code': '20109'}", 'case_id': 3, 'params': "{'mobilephone':'135411463110','pwd':'123456'}", 'method': 'post', 'url': 'futureloan/mvc/api/member/register', 'check_sql': None}
+[INFO]2018-07-26 15:01:21,937[日志信息]:目前正在执行第3条用例
+[INFO]2018-07-26 15:01:21,938[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 15:01:21,938[日志信息]:请求的参数为：{'mobilephone':'135411463110','pwd':'123456'}
+[INFO]2018-07-26 15:01:22,072[日志信息]:测试结束
+[INFO]2018-07-26 15:01:22,072[日志信息]:开始测试
+[INFO]2018-07-26 15:01:22,072[日志信息]:测试数据是：{'expect_result': "{'msg': '登录成功', 'status': 1, 'data': None, 'code': '10001'}", 'case_id': 4, 'params': "{'mobilephone': '13541122393','pwd':'123456'}", 'method': 'post', 'url': 'futureloan/mvc/api/member/login', 'check_sql': None}
+[INFO]2018-07-26 15:01:22,072[日志信息]:目前正在执行第4条用例
+[INFO]2018-07-26 15:01:22,073[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-26 15:01:22,073[日志信息]:请求的参数为：{'mobilephone': '13541122393','pwd':'123456'}
+[INFO]2018-07-26 15:01:22,214[日志信息]:测试结束
+[INFO]2018-07-26 15:01:22,214[日志信息]:开始测试
+[INFO]2018-07-26 15:01:22,216[日志信息]:测试数据是：{'expect_result': "{'msg': '手机号不能为空', 'status': 0, 'data': None, 'code': '20103'}", 'case_id': 5, 'params': "{'mobilephone':'','pwd':'123456'}", 'method': 'post', 'url': 'futureloan/mvc/api/member/login', 'check_sql': None}
+[INFO]2018-07-26 15:01:22,216[日志信息]:目前正在执行第5条用例
+[INFO]2018-07-26 15:01:22,217[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-26 15:01:22,217[日志信息]:请求的参数为：{'mobilephone':'','pwd':'123456'}
+[INFO]2018-07-26 15:01:22,365[日志信息]:测试结束
+[INFO]2018-07-26 15:01:22,367[日志信息]:开始测试
+[INFO]2018-07-26 15:01:22,367[日志信息]:测试数据是：{'expect_result': "{'msg': '充值成功', 'status': 1, 'data': {'id': '${id}', 'pwd': 'E10ADC3949BA59ABBE56E057F20F883E', 'regname': '小蜜蜂', 'type': '1', 'mobilephone': '13541122393', 'regtime':'${regtime}', 'leaveamount': '25000.00'}, 'code': '10001'}", 'case_id': 6, 'params': "{'mobilephone':'13541122222','amount':'1000'}", 'method': 'post', 'url': 'futureloan/mvc/api/member/recharge', 'check_sql': None}
+[INFO]2018-07-26 15:01:22,368[日志信息]:目前正在执行第6条用例
+[INFO]2018-07-26 15:01:22,368[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+[INFO]2018-07-26 15:01:22,368[日志信息]:请求的参数为：{'mobilephone':'13541122222','amount':'1000'}
+[INFO]2018-07-26 15:01:22,470[日志信息]:测试结束
+[INFO]2018-07-26 15:01:22,471[日志信息]:开始测试
+[INFO]2018-07-26 15:01:22,471[日志信息]:测试数据是：{'expect_result': "{'msg': '此手机号对应的会员不存在', 'status': 0, 'data': None, 'code': '20104'}", 'case_id': 7, 'params': "{'mobilephone':'15901129231','amount':'1000.05'}", 'method': 'post', 'url': 'futureloan/mvc/api/member/recharge', 'check_sql': None}
+[INFO]2018-07-26 15:01:22,471[日志信息]:目前正在执行第7条用例
+[INFO]2018-07-26 15:01:22,473[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+[INFO]2018-07-26 15:01:22,473[日志信息]:请求的参数为：{'mobilephone':'15901129231','amount':'1000.05'}
+[INFO]2018-07-26 15:01:22,595[日志信息]:测试结束
+[INFO]2018-07-26 15:04:52,520[日志信息]:开始测试
+[INFO]2018-07-26 15:04:52,520[日志信息]:测试数据是：{'params': "{'mobilephone': '13541122394','pwd':'123456'}", 'url': 'futureloan/mvc/api/member/register', 'check_sql': '{"sql":"select count(*) from member where mobilephone=13541122394","expected":"(1,)"}', 'case_id': 1, 'method': 'post', 'expect_result': "{'msg': '注册成功', 'status': 1, 'data': None, 'code': '10001'}"}
+[INFO]2018-07-26 15:04:52,520[日志信息]:目前正在执行第1条用例
+[INFO]2018-07-26 15:04:52,522[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 15:04:52,522[日志信息]:请求的参数为：{'mobilephone': '13541122394','pwd':'123456'}
+[INFO]2018-07-26 15:04:53,115[日志信息]:测试结束
+[INFO]2018-07-26 15:04:53,115[日志信息]:开始测试
+[INFO]2018-07-26 15:04:53,115[日志信息]:测试数据是：{'params': "{'mobilephone':'13541122222','pwd':''}", 'url': 'futureloan/mvc/api/member/register', 'check_sql': None, 'case_id': 2, 'method': 'post', 'expect_result': "{'msg': '密码不能为空', 'status': 0, 'data': None, 'code': '20103'}"}
+[INFO]2018-07-26 15:04:53,115[日志信息]:目前正在执行第2条用例
+[INFO]2018-07-26 15:04:53,117[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 15:04:53,117[日志信息]:请求的参数为：{'mobilephone':'13541122222','pwd':''}
+[INFO]2018-07-26 15:04:53,270[日志信息]:测试结束
+[INFO]2018-07-26 15:04:53,272[日志信息]:开始测试
+[INFO]2018-07-26 15:04:53,272[日志信息]:测试数据是：{'params': "{'mobilephone':'135411463110','pwd':'123456'}", 'url': 'futureloan/mvc/api/member/register', 'check_sql': None, 'case_id': 3, 'method': 'post', 'expect_result': "{'msg': '手机号码格式不正确', 'status': 0, 'data': None, 'code': '20109'}"}
+[INFO]2018-07-26 15:04:53,272[日志信息]:目前正在执行第3条用例
+[INFO]2018-07-26 15:04:53,273[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 15:04:53,273[日志信息]:请求的参数为：{'mobilephone':'135411463110','pwd':'123456'}
+[INFO]2018-07-26 15:04:53,398[日志信息]:测试结束
+[INFO]2018-07-26 15:04:53,398[日志信息]:开始测试
+[INFO]2018-07-26 15:04:53,398[日志信息]:测试数据是：{'params': "{'mobilephone': '13541122394','pwd':'123456'}", 'url': 'futureloan/mvc/api/member/login', 'check_sql': None, 'case_id': 4, 'method': 'post', 'expect_result': "{'msg': '登录成功', 'status': 1, 'data': None, 'code': '10001'}"}
+[INFO]2018-07-26 15:04:53,400[日志信息]:目前正在执行第4条用例
+[INFO]2018-07-26 15:04:53,400[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-26 15:04:53,400[日志信息]:请求的参数为：{'mobilephone': '13541122394','pwd':'123456'}
+[INFO]2018-07-26 15:04:53,532[日志信息]:测试结束
+[INFO]2018-07-26 15:04:53,532[日志信息]:开始测试
+[INFO]2018-07-26 15:04:53,532[日志信息]:测试数据是：{'params': "{'mobilephone':'','pwd':'123456'}", 'url': 'futureloan/mvc/api/member/login', 'check_sql': None, 'case_id': 5, 'method': 'post', 'expect_result': "{'msg': '手机号不能为空', 'status': 0, 'data': None, 'code': '20103'}"}
+[INFO]2018-07-26 15:04:53,532[日志信息]:目前正在执行第5条用例
+[INFO]2018-07-26 15:04:53,533[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-26 15:04:53,533[日志信息]:请求的参数为：{'mobilephone':'','pwd':'123456'}
+[INFO]2018-07-26 15:04:53,654[日志信息]:测试结束
+[INFO]2018-07-26 15:04:53,654[日志信息]:开始测试
+[INFO]2018-07-26 15:04:53,654[日志信息]:测试数据是：{'params': "{'mobilephone':'13541122222','amount':'1000'}", 'url': 'futureloan/mvc/api/member/recharge', 'check_sql': None, 'case_id': 6, 'method': 'post', 'expect_result': "{'msg': '充值成功', 'status': 1, 'data': {'id': '${id}', 'pwd': 'E10ADC3949BA59ABBE56E057F20F883E', 'regname': '小蜜蜂', 'type': '1', 'mobilephone': '13541122394', 'regtime':'${regtime}', 'leaveamount': '25000.00'}, 'code': '10001'}"}
+[INFO]2018-07-26 15:04:53,654[日志信息]:目前正在执行第6条用例
+[INFO]2018-07-26 15:04:53,655[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+[INFO]2018-07-26 15:04:53,655[日志信息]:请求的参数为：{'mobilephone':'13541122222','amount':'1000'}
+[INFO]2018-07-26 15:04:53,753[日志信息]:测试结束
+[INFO]2018-07-26 15:04:53,755[日志信息]:开始测试
+[INFO]2018-07-26 15:04:53,755[日志信息]:测试数据是：{'params': "{'mobilephone':'15901129231','amount':'1000.05'}", 'url': 'futureloan/mvc/api/member/recharge', 'check_sql': None, 'case_id': 7, 'method': 'post', 'expect_result': "{'msg': '此手机号对应的会员不存在', 'status': 0, 'data': None, 'code': '20104'}"}
+[INFO]2018-07-26 15:04:53,756[日志信息]:目前正在执行第7条用例
+[INFO]2018-07-26 15:04:53,756[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+[INFO]2018-07-26 15:04:53,756[日志信息]:请求的参数为：{'mobilephone':'15901129231','amount':'1000.05'}
+[INFO]2018-07-26 15:04:53,881[日志信息]:测试结束
+[INFO]2018-07-26 15:05:16,977[日志信息]:开始测试
+[INFO]2018-07-26 15:05:16,977[日志信息]:测试数据是：{'method': 'post', 'url': 'futureloan/mvc/api/member/register', 'params': "{'mobilephone': '13541122395','pwd':'123456'}", 'expect_result': "{'msg': '注册成功', 'status': 1, 'data': None, 'code': '10001'}", 'case_id': 1, 'check_sql': '{"sql":"select count(*) from member where mobilephone=13541122395","expected":"(1,)"}'}
+[INFO]2018-07-26 15:05:16,979[日志信息]:目前正在执行第1条用例
+[INFO]2018-07-26 15:05:16,979[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 15:05:16,980[日志信息]:请求的参数为：{'mobilephone': '13541122395','pwd':'123456'}
+[INFO]2018-07-26 15:05:17,749[日志信息]:测试结束
+[INFO]2018-07-26 15:05:17,749[日志信息]:开始测试
+[INFO]2018-07-26 15:05:17,750[日志信息]:测试数据是：{'method': 'post', 'url': 'futureloan/mvc/api/member/register', 'params': "{'mobilephone':'13541122222','pwd':''}", 'expect_result': "{'msg': '密码不能为空', 'status': 0, 'data': None, 'code': '20103'}", 'case_id': 2, 'check_sql': None}
+[INFO]2018-07-26 15:05:17,750[日志信息]:目前正在执行第2条用例
+[INFO]2018-07-26 15:05:17,750[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 15:05:17,750[日志信息]:请求的参数为：{'mobilephone':'13541122222','pwd':''}
+[INFO]2018-07-26 15:05:17,911[日志信息]:测试结束
+[INFO]2018-07-26 15:05:17,911[日志信息]:开始测试
+[INFO]2018-07-26 15:05:17,911[日志信息]:测试数据是：{'method': 'post', 'url': 'futureloan/mvc/api/member/register', 'params': "{'mobilephone':'135411463110','pwd':'123456'}", 'expect_result': "{'msg': '手机号码格式不正确', 'status': 0, 'data': None, 'code': '20109'}", 'case_id': 3, 'check_sql': None}
+[INFO]2018-07-26 15:05:17,911[日志信息]:目前正在执行第3条用例
+[INFO]2018-07-26 15:05:17,911[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 15:05:17,913[日志信息]:请求的参数为：{'mobilephone':'135411463110','pwd':'123456'}
+[INFO]2018-07-26 15:05:18,066[日志信息]:测试结束
+[INFO]2018-07-26 15:05:18,066[日志信息]:开始测试
+[INFO]2018-07-26 15:05:18,068[日志信息]:测试数据是：{'method': 'post', 'url': 'futureloan/mvc/api/member/login', 'params': "{'mobilephone': '13541122395','pwd':'123456'}", 'expect_result': "{'msg': '登录成功', 'status': 1, 'data': None, 'code': '10001'}", 'case_id': 4, 'check_sql': None}
+[INFO]2018-07-26 15:05:18,068[日志信息]:目前正在执行第4条用例
+[INFO]2018-07-26 15:05:18,068[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-26 15:05:18,068[日志信息]:请求的参数为：{'mobilephone': '13541122395','pwd':'123456'}
+[INFO]2018-07-26 15:05:18,207[日志信息]:测试结束
+[INFO]2018-07-26 15:05:18,207[日志信息]:开始测试
+[INFO]2018-07-26 15:05:18,207[日志信息]:测试数据是：{'method': 'post', 'url': 'futureloan/mvc/api/member/login', 'params': "{'mobilephone':'','pwd':'123456'}", 'expect_result': "{'msg': '手机号不能为空', 'status': 0, 'data': None, 'code': '20103'}", 'case_id': 5, 'check_sql': None}
+[INFO]2018-07-26 15:05:18,207[日志信息]:目前正在执行第5条用例
+[INFO]2018-07-26 15:05:18,207[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-26 15:05:18,209[日志信息]:请求的参数为：{'mobilephone':'','pwd':'123456'}
+[INFO]2018-07-26 15:05:18,328[日志信息]:测试结束
+[INFO]2018-07-26 15:05:18,328[日志信息]:开始测试
+[INFO]2018-07-26 15:05:18,328[日志信息]:测试数据是：{'method': 'post', 'url': 'futureloan/mvc/api/member/recharge', 'params': "{'mobilephone':'13541122222','amount':'1000'}", 'expect_result': "{'msg': '充值成功', 'status': 1, 'data': {'id': '${id}', 'pwd': 'E10ADC3949BA59ABBE56E057F20F883E', 'regname': '小蜜蜂', 'type': '1', 'mobilephone': '13541122395', 'regtime':'${regtime}', 'leaveamount': '25000.00'}, 'code': '10001'}", 'case_id': 6, 'check_sql': None}
+[INFO]2018-07-26 15:05:18,329[日志信息]:目前正在执行第6条用例
+[INFO]2018-07-26 15:05:18,329[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+[INFO]2018-07-26 15:05:18,329[日志信息]:请求的参数为：{'mobilephone':'13541122222','amount':'1000'}
+[INFO]2018-07-26 15:05:18,431[日志信息]:测试结束
+[INFO]2018-07-26 15:05:18,434[日志信息]:开始测试
+[INFO]2018-07-26 15:05:18,434[日志信息]:测试数据是：{'method': 'post', 'url': 'futureloan/mvc/api/member/recharge', 'params': "{'mobilephone':'15901129231','amount':'1000.05'}", 'expect_result': "{'msg': '此手机号对应的会员不存在', 'status': 0, 'data': None, 'code': '20104'}", 'case_id': 7, 'check_sql': None}
+[INFO]2018-07-26 15:05:18,434[日志信息]:目前正在执行第7条用例
+[INFO]2018-07-26 15:05:18,434[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+[INFO]2018-07-26 15:05:18,434[日志信息]:请求的参数为：{'mobilephone':'15901129231','amount':'1000.05'}
+[INFO]2018-07-26 15:05:18,568[日志信息]:测试结束
+[INFO]2018-07-26 16:12:02,131[日志信息]:开始测试
+[INFO]2018-07-26 16:12:02,132[日志信息]:测试数据是：{'check_sql': '{"sql":"select count(*) from member where mobilephone=13541122396","expected":"(1,)"}', 'params': "{'mobilephone': '13541122396','pwd':'123456'}", 'method': 'post', 'case_id': 1, 'url': 'futureloan/mvc/api/member/register', 'expect_result': "{'msg': '注册成功', 'status': 1, 'data': None, 'code': '10001'}"}
+[INFO]2018-07-26 16:12:02,132[日志信息]:目前正在执行第1条用例
+[INFO]2018-07-26 16:12:02,132[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 16:12:02,134[日志信息]:请求的参数为：{'mobilephone': '13541122396','pwd':'123456'}
+[INFO]2018-07-26 16:12:02,650[日志信息]:测试结束
+[INFO]2018-07-26 16:12:02,651[日志信息]:开始测试
+[INFO]2018-07-26 16:12:02,651[日志信息]:测试数据是：{'check_sql': None, 'params': "{'mobilephone':'13541122222','pwd':''}", 'method': 'post', 'case_id': 2, 'url': 'futureloan/mvc/api/member/register', 'expect_result': "{'msg': '密码不能为空', 'status': 0, 'data': None, 'code': '20103'}"}
+[INFO]2018-07-26 16:12:02,651[日志信息]:目前正在执行第2条用例
+[INFO]2018-07-26 16:12:02,651[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 16:12:02,651[日志信息]:请求的参数为：{'mobilephone':'13541122222','pwd':''}
+[INFO]2018-07-26 16:12:02,746[日志信息]:测试结束
+[INFO]2018-07-26 16:12:02,747[日志信息]:开始测试
+[INFO]2018-07-26 16:12:02,749[日志信息]:测试数据是：{'check_sql': None, 'params': "{'mobilephone':'135411463110','pwd':'123456'}", 'method': 'post', 'case_id': 3, 'url': 'futureloan/mvc/api/member/register', 'expect_result': "{'msg': '手机号码格式不正确', 'status': 0, 'data': None, 'code': '20109'}"}
+[INFO]2018-07-26 16:12:02,749[日志信息]:目前正在执行第3条用例
+[INFO]2018-07-26 16:12:02,749[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 16:12:02,750[日志信息]:请求的参数为：{'mobilephone':'135411463110','pwd':'123456'}
+[INFO]2018-07-26 16:12:02,832[日志信息]:测试结束
+[INFO]2018-07-26 16:12:02,832[日志信息]:开始测试
+[INFO]2018-07-26 16:12:02,832[日志信息]:测试数据是：{'check_sql': None, 'params': "{'mobilephone': '13541122396','pwd':'123456'}", 'method': 'post', 'case_id': 4, 'url': 'futureloan/mvc/api/member/login', 'expect_result': "{'msg': '登录成功', 'status': 1, 'data': None, 'code': '10001'}"}
+[INFO]2018-07-26 16:12:02,834[日志信息]:目前正在执行第4条用例
+[INFO]2018-07-26 16:12:02,834[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-26 16:12:02,834[日志信息]:请求的参数为：{'mobilephone': '13541122396','pwd':'123456'}
+[INFO]2018-07-26 16:12:02,917[日志信息]:测试结束
+[INFO]2018-07-26 16:12:02,917[日志信息]:开始测试
+[INFO]2018-07-26 16:12:02,917[日志信息]:测试数据是：{'check_sql': None, 'params': "{'mobilephone':'','pwd':'123456'}", 'method': 'post', 'case_id': 5, 'url': 'futureloan/mvc/api/member/login', 'expect_result': "{'msg': '手机号不能为空', 'status': 0, 'data': None, 'code': '20103'}"}
+[INFO]2018-07-26 16:12:02,917[日志信息]:目前正在执行第5条用例
+[INFO]2018-07-26 16:12:02,918[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-26 16:12:02,918[日志信息]:请求的参数为：{'mobilephone':'','pwd':'123456'}
+[INFO]2018-07-26 16:12:02,999[日志信息]:测试结束
+[INFO]2018-07-26 16:12:02,999[日志信息]:开始测试
+[INFO]2018-07-26 16:12:03,000[日志信息]:测试数据是：{'check_sql': None, 'params': "{'mobilephone':'13541122222','amount':'1000'}", 'method': 'post', 'case_id': 6, 'url': 'futureloan/mvc/api/member/recharge', 'expect_result': "{'msg': '充值成功', 'status': 1, 'data': {'id': '${id}', 'pwd': 'E10ADC3949BA59ABBE56E057F20F883E', 'regname': '小蜜蜂', 'type': '1', 'mobilephone': '13541122396', 'regtime':'${regtime}', 'leaveamount': '25000.00'}, 'code': '10001'}"}
+[INFO]2018-07-26 16:12:03,000[日志信息]:目前正在执行第6条用例
+[INFO]2018-07-26 16:12:03,000[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+[INFO]2018-07-26 16:12:03,000[日志信息]:请求的参数为：{'mobilephone':'13541122222','amount':'1000'}
+[INFO]2018-07-26 16:12:03,125[日志信息]:测试结束
+[INFO]2018-07-26 16:12:03,125[日志信息]:开始测试
+[INFO]2018-07-26 16:12:03,125[日志信息]:测试数据是：{'check_sql': None, 'params': "{'mobilephone':'15901129231','amount':'1000.05'}", 'method': 'post', 'case_id': 7, 'url': 'futureloan/mvc/api/member/recharge', 'expect_result': "{'msg': '此手机号对应的会员不存在', 'status': 0, 'data': None, 'code': '20104'}"}
+[INFO]2018-07-26 16:12:03,125[日志信息]:目前正在执行第7条用例
+[INFO]2018-07-26 16:12:03,127[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+[INFO]2018-07-26 16:12:03,127[日志信息]:请求的参数为：{'mobilephone':'15901129231','amount':'1000.05'}
+[INFO]2018-07-26 16:12:03,230[日志信息]:测试结束
+[INFO]2018-07-26 16:12:36,923[日志信息]:开始测试
+[INFO]2018-07-26 16:12:36,924[日志信息]:测试数据是：{'case_id': 1, 'check_sql': '{"sql":"select count(*) from member where mobilephone=13541122397","expected":"(1,)"}', 'params': "{'mobilephone': '13541122397','pwd':'123456'}", 'expect_result': "{'msg': '注册成功', 'status': 1, 'data': None, 'code': '10001'}", 'method': 'post', 'url': 'futureloan/mvc/api/member/register'}
+[INFO]2018-07-26 16:12:36,924[日志信息]:目前正在执行第1条用例
+[INFO]2018-07-26 16:12:36,924[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 16:12:36,924[日志信息]:请求的参数为：{'mobilephone': '13541122397','pwd':'123456'}
+[INFO]2018-07-26 16:12:37,490[日志信息]:测试结束
+[INFO]2018-07-26 16:12:37,490[日志信息]:开始测试
+[INFO]2018-07-26 16:12:37,492[日志信息]:测试数据是：{'case_id': 2, 'check_sql': None, 'params': "{'mobilephone':'13541122222','pwd':''}", 'expect_result': "{'msg': '密码不能为空', 'status': 0, 'data': None, 'code': '20103'}", 'method': 'post', 'url': 'futureloan/mvc/api/member/register'}
+[INFO]2018-07-26 16:12:37,492[日志信息]:目前正在执行第2条用例
+[INFO]2018-07-26 16:12:37,492[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 16:12:37,493[日志信息]:请求的参数为：{'mobilephone':'13541122222','pwd':''}
+[INFO]2018-07-26 16:12:37,615[日志信息]:测试结束
+[INFO]2018-07-26 16:12:37,615[日志信息]:开始测试
+[INFO]2018-07-26 16:12:37,615[日志信息]:测试数据是：{'case_id': 3, 'check_sql': None, 'params': "{'mobilephone':'135411463110','pwd':'123456'}", 'expect_result': "{'msg': '手机号码格式不正确', 'status': 0, 'data': None, 'code': '20109'}", 'method': 'post', 'url': 'futureloan/mvc/api/member/register'}
+[INFO]2018-07-26 16:12:37,615[日志信息]:目前正在执行第3条用例
+[INFO]2018-07-26 16:12:37,615[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 16:12:37,619[日志信息]:请求的参数为：{'mobilephone':'135411463110','pwd':'123456'}
+[INFO]2018-07-26 16:12:37,776[日志信息]:测试结束
+[INFO]2018-07-26 16:12:37,778[日志信息]:开始测试
+[INFO]2018-07-26 16:12:37,778[日志信息]:测试数据是：{'case_id': 4, 'check_sql': None, 'params': "{'mobilephone': '13541122397','pwd':'123456'}", 'expect_result': "{'msg': '登录成功', 'status': 1, 'data': None, 'code': '10001'}", 'method': 'post', 'url': 'futureloan/mvc/api/member/login'}
+[INFO]2018-07-26 16:12:37,779[日志信息]:目前正在执行第4条用例
+[INFO]2018-07-26 16:12:37,779[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-26 16:12:37,779[日志信息]:请求的参数为：{'mobilephone': '13541122397','pwd':'123456'}
+[INFO]2018-07-26 16:12:37,938[日志信息]:测试结束
+[INFO]2018-07-26 16:12:37,940[日志信息]:开始测试
+[INFO]2018-07-26 16:12:37,940[日志信息]:测试数据是：{'case_id': 5, 'check_sql': None, 'params': "{'mobilephone':'','pwd':'123456'}", 'expect_result': "{'msg': '手机号不能为空', 'status': 0, 'data': None, 'code': '20103'}", 'method': 'post', 'url': 'futureloan/mvc/api/member/login'}
+[INFO]2018-07-26 16:12:37,940[日志信息]:目前正在执行第5条用例
+[INFO]2018-07-26 16:12:37,940[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-26 16:12:37,941[日志信息]:请求的参数为：{'mobilephone':'','pwd':'123456'}
+[INFO]2018-07-26 16:12:38,073[日志信息]:测试结束
+[INFO]2018-07-26 16:12:38,073[日志信息]:开始测试
+[INFO]2018-07-26 16:12:38,075[日志信息]:测试数据是：{'case_id': 6, 'check_sql': None, 'params': "{'mobilephone':'13541122222','amount':'1000'}", 'expect_result': "{'msg': '充值成功', 'status': 1, 'data': {'id': '${id}', 'pwd': 'E10ADC3949BA59ABBE56E057F20F883E', 'regname': '小蜜蜂', 'type': '1', 'mobilephone': '13541122397', 'regtime':'${regtime}', 'leaveamount': '25000.00'}, 'code': '10001'}", 'method': 'post', 'url': 'futureloan/mvc/api/member/recharge'}
+[INFO]2018-07-26 16:12:38,075[日志信息]:目前正在执行第6条用例
+[INFO]2018-07-26 16:12:38,075[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+[INFO]2018-07-26 16:12:38,075[日志信息]:请求的参数为：{'mobilephone':'13541122222','amount':'1000'}
+[ERROR]2018-07-26 16:12:38,921[日志信息]:断言报错信息是{'dat[42 chars]41122397', 'id': 13240, 'type': '1', 'leaveamo[156 chars]': 1} != {'dat[42 chars]41122222', 'id': 13240, 'type': '1', 'leaveamo[137 chars]': 1}
+  {'code': '10001',
+   'data': {'id': 13240,
+-           'leaveamount': '25000.00',
+?                           ^^
+
++           'leaveamount': '43000.00',
+?                           ^^
+
+-           'mobilephone': '13541122397',
+?                                   ^^^
+
++           'mobilephone': '13541122222',
+?                                   ^^^
+
+            'pwd': 'E10ADC3949BA59ABBE56E057F20F883E',
+            'regname': '小蜜蜂',
+-           'regtime': datetime.datetime(2018, 6, 28, 23, 42, 57),
++           'regtime': '2018-06-28 23:42:57.0',
+            'type': '1'},
+   'msg': '充值成功',
+   'status': 1}
+[INFO]2018-07-26 16:12:38,961[日志信息]:测试结束
+[INFO]2018-07-26 16:12:38,963[日志信息]:开始测试
+[INFO]2018-07-26 16:12:38,963[日志信息]:测试数据是：{'case_id': 7, 'check_sql': None, 'params': "{'mobilephone':'15901129231','amount':'1000.05'}", 'expect_result': "{'msg': '此手机号对应的会员不存在', 'status': 0, 'data': None, 'code': '20104'}", 'method': 'post', 'url': 'futureloan/mvc/api/member/recharge'}
+[INFO]2018-07-26 16:12:38,967[日志信息]:目前正在执行第7条用例
+[INFO]2018-07-26 16:12:38,967[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+[INFO]2018-07-26 16:12:38,967[日志信息]:请求的参数为：{'mobilephone':'15901129231','amount':'1000.05'}
+[INFO]2018-07-26 16:12:39,101[日志信息]:测试结束
+[INFO]2018-07-26 16:52:14,687[日志信息]:开始测试
+[INFO]2018-07-26 16:52:14,687[日志信息]:测试数据是：{'expect_result': "{'msg': '注册成功', 'status': 1, 'data': None, 'code': '10001'}", 'case_id': 1, 'params': "{'mobilephone': '13541122398','pwd':'123456'}", 'check_sql': '{"sql":"select count(*) from member where mobilephone=13541122398","expected":"(1,)"}', 'method': 'post', 'url': 'futureloan/mvc/api/member/register'}
+[INFO]2018-07-26 16:52:14,687[日志信息]:目前正在执行第1条用例
+[INFO]2018-07-26 16:52:14,687[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 16:52:14,688[日志信息]:请求的参数为：{'mobilephone': '13541122398','pwd':'123456'}
+[INFO]2018-07-26 16:52:15,214[日志信息]:测试结束
+[INFO]2018-07-26 16:52:15,216[日志信息]:开始测试
+[INFO]2018-07-26 16:52:15,217[日志信息]:测试数据是：{'expect_result': "{'msg': '密码不能为空', 'status': 0, 'data': None, 'code': '20103'}", 'case_id': 2, 'params': "{'mobilephone':'13541122222','pwd':''}", 'check_sql': None, 'method': 'post', 'url': 'futureloan/mvc/api/member/register'}
+[INFO]2018-07-26 16:52:15,217[日志信息]:目前正在执行第2条用例
+[INFO]2018-07-26 16:52:15,217[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 16:52:15,217[日志信息]:请求的参数为：{'mobilephone':'13541122222','pwd':''}
+[INFO]2018-07-26 16:52:15,352[日志信息]:测试结束
+[INFO]2018-07-26 16:52:15,352[日志信息]:开始测试
+[INFO]2018-07-26 16:52:15,354[日志信息]:测试数据是：{'expect_result': "{'msg': '手机号码格式不正确', 'status': 0, 'data': None, 'code': '20109'}", 'case_id': 3, 'params': "{'mobilephone':'135411463110','pwd':'123456'}", 'check_sql': None, 'method': 'post', 'url': 'futureloan/mvc/api/member/register'}
+[INFO]2018-07-26 16:52:15,354[日志信息]:目前正在执行第3条用例
+[INFO]2018-07-26 16:52:15,354[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 16:52:15,355[日志信息]:请求的参数为：{'mobilephone':'135411463110','pwd':'123456'}
+[INFO]2018-07-26 16:52:15,505[日志信息]:测试结束
+[INFO]2018-07-26 16:52:15,506[日志信息]:开始测试
+[INFO]2018-07-26 16:52:15,506[日志信息]:测试数据是：{'expect_result': "{'msg': '登录成功', 'status': 1, 'data': None, 'code': '10001'}", 'case_id': 4, 'params': "{'mobilephone': '13541122398','pwd':'123456'}", 'check_sql': None, 'method': 'post', 'url': 'futureloan/mvc/api/member/login'}
+[INFO]2018-07-26 16:52:15,506[日志信息]:目前正在执行第4条用例
+[INFO]2018-07-26 16:52:15,506[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-26 16:52:15,507[日志信息]:请求的参数为：{'mobilephone': '13541122398','pwd':'123456'}
+[INFO]2018-07-26 16:52:15,665[日志信息]:测试结束
+[INFO]2018-07-26 16:52:15,667[日志信息]:开始测试
+[INFO]2018-07-26 16:52:15,667[日志信息]:测试数据是：{'expect_result': "{'msg': '手机号不能为空', 'status': 0, 'data': None, 'code': '20103'}", 'case_id': 5, 'params': "{'mobilephone':'','pwd':'123456'}", 'check_sql': None, 'method': 'post', 'url': 'futureloan/mvc/api/member/login'}
+[INFO]2018-07-26 16:52:15,667[日志信息]:目前正在执行第5条用例
+[INFO]2018-07-26 16:52:15,667[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-26 16:52:15,667[日志信息]:请求的参数为：{'mobilephone':'','pwd':'123456'}
+[INFO]2018-07-26 16:52:15,802[日志信息]:测试结束
+[INFO]2018-07-26 16:52:15,802[日志信息]:开始测试
+[INFO]2018-07-26 16:52:15,802[日志信息]:测试数据是：{'expect_result': "{'msg': '充值成功', 'status': 1, 'data': {'id': '${id}', 'pwd': 'E10ADC3949BA59ABBE56E057F20F883E', 'regname': '小蜜蜂', 'type': '1', 'mobilephone': '13541122398', 'regtime':'${regtime}', 'leaveamount': '1000.00'}, 'code': '10001'}", 'case_id': 6, 'params': "{'mobilephone': '13541122398','amount':'1000'}", 'check_sql': None, 'method': 'post', 'url': 'futureloan/mvc/api/member/recharge'}
+[INFO]2018-07-26 16:52:15,802[日志信息]:目前正在执行第6条用例
+[INFO]2018-07-26 16:52:15,802[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+[INFO]2018-07-26 16:52:15,802[日志信息]:请求的参数为：{'mobilephone': '13541122398','amount':'1000'}
+[INFO]2018-07-26 16:52:16,628[日志信息]:测试结束
+[INFO]2018-07-26 16:52:16,630[日志信息]:开始测试
+[INFO]2018-07-26 16:52:16,630[日志信息]:测试数据是：{'expect_result': "{'msg': '此手机号对应的会员不存在', 'status': 0, 'data': None, 'code': '20104'}", 'case_id': 7, 'params': "{'mobilephone':'15901129231','amount':'1000.05'}", 'check_sql': None, 'method': 'post', 'url': 'futureloan/mvc/api/member/recharge'}
+[INFO]2018-07-26 16:52:16,631[日志信息]:目前正在执行第7条用例
+[INFO]2018-07-26 16:52:16,631[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+[INFO]2018-07-26 16:52:16,631[日志信息]:请求的参数为：{'mobilephone':'15901129231','amount':'1000.05'}
+[INFO]2018-07-26 16:52:16,757[日志信息]:测试结束
+[INFO]2018-07-26 16:52:53,392[日志信息]:开始测试
+[INFO]2018-07-26 16:52:53,392[日志信息]:测试数据是：{'method': 'post', 'expect_result': "{'msg': '注册成功', 'status': 1, 'data': None, 'code': '10001'}", 'case_id': 1, 'check_sql': '{"sql":"select count(*) from member where mobilephone=13541122399","expected":"(1,)"}', 'params': "{'mobilephone': '13541122399','pwd':'123456'}", 'url': 'futureloan/mvc/api/member/register'}
+[INFO]2018-07-26 16:52:53,392[日志信息]:目前正在执行第1条用例
+[INFO]2018-07-26 16:52:53,394[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 16:52:53,394[日志信息]:请求的参数为：{'mobilephone': '13541122399','pwd':'123456'}
+[INFO]2018-07-26 16:52:53,897[日志信息]:测试结束
+[INFO]2018-07-26 16:52:53,897[日志信息]:开始测试
+[INFO]2018-07-26 16:52:53,898[日志信息]:测试数据是：{'method': 'post', 'expect_result': "{'msg': '密码不能为空', 'status': 0, 'data': None, 'code': '20103'}", 'case_id': 2, 'check_sql': None, 'params': "{'mobilephone':'13541122222','pwd':''}", 'url': 'futureloan/mvc/api/member/register'}
+[INFO]2018-07-26 16:52:53,898[日志信息]:目前正在执行第2条用例
+[INFO]2018-07-26 16:52:53,901[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 16:52:53,901[日志信息]:请求的参数为：{'mobilephone':'13541122222','pwd':''}
+[INFO]2018-07-26 16:52:54,016[日志信息]:测试结束
+[INFO]2018-07-26 16:52:54,016[日志信息]:开始测试
+[INFO]2018-07-26 16:52:54,016[日志信息]:测试数据是：{'method': 'post', 'expect_result': "{'msg': '手机号码格式不正确', 'status': 0, 'data': None, 'code': '20109'}", 'case_id': 3, 'check_sql': None, 'params': "{'mobilephone':'135411463110','pwd':'123456'}", 'url': 'futureloan/mvc/api/member/register'}
+[INFO]2018-07-26 16:52:54,017[日志信息]:目前正在执行第3条用例
+[INFO]2018-07-26 16:52:54,017[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/register
+[INFO]2018-07-26 16:52:54,017[日志信息]:请求的参数为：{'mobilephone':'135411463110','pwd':'123456'}
+[INFO]2018-07-26 16:52:54,142[日志信息]:测试结束
+[INFO]2018-07-26 16:52:54,144[日志信息]:开始测试
+[INFO]2018-07-26 16:52:54,144[日志信息]:测试数据是：{'method': 'post', 'expect_result': "{'msg': '登录成功', 'status': 1, 'data': None, 'code': '10001'}", 'case_id': 4, 'check_sql': None, 'params': "{'mobilephone': '13541122399','pwd':'123456'}", 'url': 'futureloan/mvc/api/member/login'}
+[INFO]2018-07-26 16:52:54,144[日志信息]:目前正在执行第4条用例
+[INFO]2018-07-26 16:52:54,144[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-26 16:52:54,144[日志信息]:请求的参数为：{'mobilephone': '13541122399','pwd':'123456'}
+[INFO]2018-07-26 16:52:54,269[日志信息]:测试结束
+[INFO]2018-07-26 16:52:54,269[日志信息]:开始测试
+[INFO]2018-07-26 16:52:54,269[日志信息]:测试数据是：{'method': 'post', 'expect_result': "{'msg': '手机号不能为空', 'status': 0, 'data': None, 'code': '20103'}", 'case_id': 5, 'check_sql': None, 'params': "{'mobilephone':'','pwd':'123456'}", 'url': 'futureloan/mvc/api/member/login'}
+[INFO]2018-07-26 16:52:54,269[日志信息]:目前正在执行第5条用例
+[INFO]2018-07-26 16:52:54,269[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/login
+[INFO]2018-07-26 16:52:54,269[日志信息]:请求的参数为：{'mobilephone':'','pwd':'123456'}
+[INFO]2018-07-26 16:52:54,413[日志信息]:测试结束
+[INFO]2018-07-26 16:52:54,413[日志信息]:开始测试
+[INFO]2018-07-26 16:52:54,414[日志信息]:测试数据是：{'method': 'post', 'expect_result': "{'msg': '充值成功', 'status': 1, 'data': {'id': '${id}', 'pwd': 'E10ADC3949BA59ABBE56E057F20F883E', 'regname': '小蜜蜂', 'type': '1', 'mobilephone': '13541122399', 'regtime':'${regtime}', 'leaveamount': '1000.00'}, 'code': '10001'}", 'case_id': 6, 'check_sql': None, 'params': "{'mobilephone': '13541122399','amount':'1000'}", 'url': 'futureloan/mvc/api/member/recharge'}
+[INFO]2018-07-26 16:52:54,414[日志信息]:目前正在执行第6条用例
+[INFO]2018-07-26 16:52:54,414[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+[INFO]2018-07-26 16:52:54,414[日志信息]:请求的参数为：{'mobilephone': '13541122399','amount':'1000'}
+[INFO]2018-07-26 16:52:55,319[日志信息]:测试结束
+[INFO]2018-07-26 16:52:55,319[日志信息]:开始测试
+[INFO]2018-07-26 16:52:55,321[日志信息]:测试数据是：{'method': 'post', 'expect_result': "{'msg': '此手机号对应的会员不存在', 'status': 0, 'data': None, 'code': '20104'}", 'case_id': 7, 'check_sql': None, 'params': "{'mobilephone':'15901129231','amount':'1000.05'}", 'url': 'futureloan/mvc/api/member/recharge'}
+[INFO]2018-07-26 16:52:55,321[日志信息]:目前正在执行第7条用例
+[INFO]2018-07-26 16:52:55,321[日志信息]:请求的地址为：http://119.23.241.154:8080/futureloan/mvc/api/member/recharge
+[INFO]2018-07-26 16:52:55,321[日志信息]:请求的参数为：{'mobilephone':'15901129231','amount':'1000.05'}
+[INFO]2018-07-26 16:52:55,456[日志信息]:测试结束

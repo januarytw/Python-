@@ -26,6 +26,7 @@ class DoExcel():
         sheet.cell(1,2).value=new_tel
         wb.save(self.file_path)
 
+    # <editor-fold desc="读取excel中的用例,返回的数据类型为list">
     #读取excel中的用例,返回的数据类型为list
     # def read_data_to_list(self,mode,case_list):#mode：读取用例模式，0为指定用例，1为全部用例。case_list：用例列表
     #     #载入文件
@@ -73,6 +74,7 @@ class DoExcel():
     #     self.update_tel(str(int(no_reg_tel)+1))
     #
     #     return test_data
+    # </editor-fold>
 
     #读取excel中的用例,返回的数据类型为dict
     def read_data(self,mode,case_list):#mode：读取用例模式，0为指定用例，1为全部用例。case_list：用例列表
@@ -84,6 +86,7 @@ class DoExcel():
         test_data=[]#存储所有行的数据
         no_reg_tel=self.no_reg_tel()
 
+        # <editor-fold desc="方法一">
         #方法一
         # if mode=='1':
         #     for i in range(2,sheet.max_row+1):
@@ -134,6 +137,7 @@ class DoExcel():
         # self.update_tel(str(int(no_reg_tel)+1))
         #
         # return test_data
+        # </editor-fold>
 
         #方法二
         for i in range(2,sheet.max_row+1):
@@ -141,7 +145,7 @@ class DoExcel():
             sub_data['case_id']=sheet.cell(i,1).value
             sub_data['method']=sheet.cell(i,4).value
             sub_data['url']=sheet.cell(i,5).value
-            # sub_data['expect_result']=sheet.cell(i,7).value
+
             #针对充值操作，替换手机号
             if sheet.cell(i,7).value.find('${first_tel}')!=-1:
                 new_param=sheet.cell(i,7).value.replace('${first_tel}',str(no_reg_tel))

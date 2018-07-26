@@ -51,8 +51,6 @@ class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
         # res=HttpRequest(ip+a[4],(a[5])).httpRequest(a[3],cookies=COOKIES)
         #此方法是针对字典取值，可以根据key取value值
         res=HttpRequest(ip+a['url'],eval(a['params'])).httpRequest(a['method'],cookies=COOKIES)
-        print(type(res.json()))
-        print(type(res))
 
         if res.cookies!={}:#判断cookies是否为空用{},或用len(res.cookies)==0
             COOKIES=res.cookies
@@ -73,10 +71,27 @@ class TestHttpRequest(unittest.TestCase):#!!!这里要继承TestCase
             finally:
                 self.t.write_data(int(a['case_id'])+1,2,str(sql_result),check_sql_result)
 
+
+        #判断是否存在id和regtime需要替换
+        if a['expect_result'].find("${id}")!=-1 and a['expect_result'].find('${regtime}')!=-1:
+            #获取手机号 从params里面去获取手机号
+            mobilephone=eval(a['params'])['mobilephone']#!!! 记住，字典的键值要用“”
+            #替换id
+            member_id=DoMysql().do_mysql('select id from member where mobilephone=%s'%mobilephone)[0]#sql返回是元组类型
+            #替换regtime
+            regtime=DoMysql().do_mysql('select regtime from member where mobilephone='+mobilephone)[0]
+
+            expected_result=eval(a['expect_result'])
+            expected_result['data']['id']=member_id
+            expected_result['data']['regtime']=str(regtime)+'.0'
+        else:
+            expected_result=eval(a['expect_result'])
+
+
+
         #检查excel中的预期值
         try:
-            self.assertEqual(eval(a['expect_result']),(res.json()))#!!!预期结果要转换成str
-            print("(a['expect_result'])的类型",type(a['expect_result']))
+            self.assertEqual(expected_result,res.json())#!!!预期结果要转换成str
             result='PASS'
         except AssertionError as e:
             logger.error("断言报错信息是%s"%e)

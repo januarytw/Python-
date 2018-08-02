@@ -1,4 +1,4 @@
-#显示等待
+#显性等待
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC

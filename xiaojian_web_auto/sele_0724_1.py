@@ -20,7 +20,7 @@ driver.get("http://www.baidu.com")
 # 隐形等待
 driver.implicitly_wait(30)
 
-driver.find_element_by_id("kw").send_keys("selenium webdriver")
+driver.find_element_by_id("kw").sen
 driver.find_element_by_id("su").click()
 
 #！！！当页面发生变化的时候，一定要加等待

@@ -29,6 +29,16 @@ class BidPage:
 
     #投资-投资的金额
     def invest(self,money):
+        #等待输入框出现
+        WebDriverWait(self.driver,20,1).until(EC.visibility_of_element_located((By.XPATH,self.invest_moneyInput_xpath)))
+        ele = self.driver.find_element_by_xpath(self.invest_moneyInput_xpath)
+        self.driver.execute_script("arguments[0].scrollIntoView();", ele)
+        #输入金额
+        ele.send_keys(money)
+        #提交投资
+        ele = self.driver.find_element_by_xpath(self.invest_moneySubmit_xpath)
+        self.driver.execute_script("arguments[0].scrollIntoView();", ele)
+        ele.click()
         pass
 
     #投资成功的弹出框-点击查看并激活按钮-进入个人页面
